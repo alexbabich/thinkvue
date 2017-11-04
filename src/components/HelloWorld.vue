@@ -15,8 +15,10 @@ export default {
 }
 </script>
 
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+<style lang="scss">
+  .hello {
+    h1 {
+      font-weight: normal;
+    }
+  }
 </style>
