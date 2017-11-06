@@ -1,38 +1,33 @@
 <template>
   <div id="app">
-    <header-menu></header-menu>
-    <div class="hello">
-      <h1>{{ msg }}</h1>
-    </div>
+    <header-section></header-section>
+    <b-container>
+      <div class="hello">
+        <h1>{{ msg }}</h1>
+      </div>
+    </b-container>
   </div>
 </template>
 
 <script>
-  import HeaderMenu from '@/components/HeaderMenu.vue'
-
+  import HeaderSection from '@/components/HeaderSection.vue'
   export default {
     name: 'HelloWorld',
     components: {
-      'header-menu': HeaderMenu
+      'header-section': HeaderSection
     },
     data () {
       return {
-        msg: 'iThink SPA'
+        msg: ''
       }
     }
   }
 </script>
 
 <style lang="scss">
-  .hello {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-    h1 {
-      font-weight: normal;
-    }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
   }
+
 </style>
