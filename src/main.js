@@ -3,7 +3,7 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/MainView.vue'
 import router from './router'
 
 Vue.use(BootstrapVue)

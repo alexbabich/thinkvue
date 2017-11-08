@@ -6,15 +6,18 @@
         <h1>{{ msg }}</h1>
       </div>
     </b-container>
+    <social-links></social-links>
   </div>
 </template>
 
 <script>
   import HeaderSection from '@/components/HeaderSection.vue'
+  import SocialLinks from '@/components/SocialLinks.vue'
   export default {
-    name: 'HelloWorld',
+    name: 'MainView',
     components: {
-      'header-section': HeaderSection
+      'header-section': HeaderSection,
+      'social-links': SocialLinks
     },
     data () {
       return {
