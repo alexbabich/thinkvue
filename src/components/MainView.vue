@@ -1,23 +1,26 @@
 <template>
   <div id="app">
-    <header-section></header-section>
+    <header-section/>
     <b-container>
       <div class="hello">
         <h1>{{ msg }}</h1>
       </div>
     </b-container>
-    <social-links></social-links>
+    <f-a-q/>
+    <social-links/>
   </div>
 </template>
 
 <script>
   import HeaderSection from '@/components/HeaderSection.vue'
   import SocialLinks from '@/components/SocialLinks.vue'
+  import FAQ from '@/components/FAQ.vue'
   export default {
     name: 'MainView',
     components: {
-      'header-section': HeaderSection,
-      'social-links': SocialLinks
+      FAQ,
+      HeaderSection,
+      SocialLinks
     },
     data () {
       return {
@@ -89,7 +92,7 @@
   }
   body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 1rem;
   }
 
 </style>
