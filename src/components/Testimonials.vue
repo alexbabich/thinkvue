@@ -1,5 +1,5 @@
 <template>
-    <b-container class="text-center">
+    <b-container class="text-center pt-5 pb-5">
         <p class="th-block-title">Отзывы</p>
         <ul class="list-unstyled row th-testimonial-list">
             <li v-for="testimonial in testimonialsList" class="col-12 th-testimonial-item">
@@ -26,7 +26,11 @@
     data () {
       return {
         testimonialsList: [
-          { img: '', user: 'Ali Sayed, Zendesk Corp', text: 'Используя приложение Shifu удалось увеличить прибыль на 25% в течении первого месяца. Ежедневно приложение используют более 100 клиентов. Общий обьем заказов через приложение составляет около 30%.' }
+          {
+            img: '',
+            user: 'Ali Sayed, Zendesk Corp',
+            text: 'Используя приложение Shifu удалось увеличить прибыль на 25% в течении первого месяца. Ежедневно приложение используют более 100 клиентов. Общий обьем заказов через приложение составляет около 30%.'
+          }
         ]
       }
     }

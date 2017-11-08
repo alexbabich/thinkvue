@@ -6,6 +6,8 @@
         <h1>{{ msg }}</h1>
       </div>
     </b-container>
+    <price/>
+    <some-facts/>
     <testimonials/>
     <f-a-q/>
     <social-links/>
@@ -17,9 +19,13 @@
   import SocialLinks from '@/components/SocialLinks.vue'
   import FAQ from '@/components/FAQ.vue'
   import Testimonials from '@/components/Testimonials.vue'
+  import Price from '@/components/Price.vue'
+  import SomeFacts from '@/components/SomeFacts.vue'
   export default {
     name: 'MainView',
     components: {
+      SomeFacts,
+      Price,
       Testimonials,
       FAQ,
       HeaderSection,

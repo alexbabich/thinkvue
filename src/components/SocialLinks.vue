@@ -1,5 +1,5 @@
 <template>
-    <b-container class="p-3 text-center">
+    <b-container class="pt-5 pb-4 text-center">
         <p class="th-block-subtitle">Присоединятесь к нам в социальных сетях:</p>
         <ul class="list-unstyled list-inline th-social-list">
             <li v-for="link in linkList">

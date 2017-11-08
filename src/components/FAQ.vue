@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container class="pt-5 pb-5">
         <p class="text-center th-block-title">Часто задаваемые вопросы</p>
         <ul class="list-unstyled row th-ask-list">
             <li v-for="answer in questionList" class="col-6 th-ask-item">
