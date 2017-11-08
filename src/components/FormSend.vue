@@ -1,14 +1,14 @@
 <template>
-    <b-col lg="4" class="th-form-wrapper text-center">
-        <h2>Узнай как использовать приложение в своем бизнесе</h2>
+    <b-col lg="4" class="m-auto p-4 text-center th-form-wrapper">
+        <h2 class="mb-4 mt-2">Узнай как использовать<br/>приложение в своем бизнесе</h2>
         <b-form @submit="onSubmit" validated>
             <b-form-group>
-                <b-form-input id="nameInput" type="text" v-model="form.name" required placeholder="Имя"></b-form-input>
+                <b-form-input class="mx-auto" id="nameInput" type="text" v-model="form.name" required placeholder="Имя"></b-form-input>
             </b-form-group>
             <b-form-group>
-                <b-form-input id="nameInput" type="tel" v-model="form.phone" required placeholder="Телефон "></b-form-input>
+                <b-form-input class="mx-auto" id="phoneInput" type="tel" v-model="form.phone" required placeholder="Телефон"></b-form-input>
             </b-form-group>
-            <b-button type="submit" class="th-cmdSend">Узнать</b-button>
+            <b-button type="submit" class="th-cmdSend mt-3 mb-4">Узнать</b-button>
         </b-form>
     </b-col>
 </template>
@@ -36,8 +36,8 @@
 <style lang="scss">
     .th-form-wrapper {
         border: 1px solid #fff;
-        padding: 20px;
         color: #fff;
+        max-width: 404px;
         h2 {
             font-size: 1.5rem;
             font-weight: 300;
@@ -45,6 +45,8 @@
         }
         form {
             input {
+                height: 42px;
+                width: 354px;
                 color: #000;
                 border-radius: 2px;
                 border: 1px solid #bfcacf;

@@ -3,7 +3,7 @@
         <header-menu></header-menu>
         <b-container>
             <b-row>
-                <b-col lg="8">
+                <b-col lg="7" class="p-0">
                     <h1 class="th-page-title">Приложения для вашего бизнеса по цене чашки кофе</h1>
                     <p class="th-page-subtitle">Увеличь прибыль своего бизнеса в 2 раза используя мобильное приложение.</p>
                 </b-col>
