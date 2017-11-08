@@ -4,12 +4,10 @@
         <b-container>
             <b-row>
                 <b-col lg="8">
-                    <h1>Приложения для вашего бизнеса по цене чашки кофе</h1>
-                    <p>Увеличь прибыль своего бизнеса в 2 раза используя мобильное приложение.</p>
+                    <h1 class="th-page-title">Приложения для вашего бизнеса по цене чашки кофе</h1>
+                    <p class="th-page-subtitle">Увеличь прибыль своего бизнеса в 2 раза используя мобильное приложение.</p>
                 </b-col>
-                <b-col lg="4">
-                    <form-send></form-send>
-                </b-col>
+                <form-send/>
             </b-row>
         </b-container>
     </div>
@@ -40,7 +38,7 @@
         position: relative;
         z-index: 1;
         &:before {
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0, 0, 0, 0.3);
             content: '';
             position: absolute;
             top: 0;
@@ -50,8 +48,18 @@
             z-index: 2;
         }
     }
-    .container {
-        z-index: 3;
-        position: relative;
+
+    .th-page-title {
+        font-size: 3rem;
+        line-height: 1;
+        color: #fff;
+        font-weight: 300;
+    }
+    .th-page-subtitle {
+        font-size: 1.875rem;
+        font-style: italic;
+        line-height: 1;
+        color: #fff;
+        font-weight: 300;
     }
 </style>

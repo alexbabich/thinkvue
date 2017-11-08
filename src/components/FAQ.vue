@@ -34,11 +34,6 @@
     .th-ask-item {
 
     }
-    .th-block-title {
-        font-size: 2.875rem;
-        font-weight: 300;
-        line-height: 1;
-    }
     .th-ask-title {
         font-size: 1.5rem;
         font-weight: 600;
