@@ -27,7 +27,6 @@
     },
     data () {
       return {
-        msg: 'iThink SPA'
       }
     }
   }

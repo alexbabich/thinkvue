@@ -1,12 +1,10 @@
 <template>
     <b-container>
-        <nav>
-            <ul class="list-unstyled list-inline">
-                <li class="list-inline-item" v-for="todo in todos">
-                    <a href="#">{{ todo.text }}</a>
-                </li>
-            </ul>
-        </nav>
+        <b-nav fill>
+            <b-nav-item v-bind:key="todo.text" v-for="todo in todos">
+                {{todo.text}}
+            </b-nav-item>
+        </b-nav>
     </b-container>
 </template>
 
@@ -28,7 +26,7 @@
 </script>
 
 <style lang="scss">
-    nav {
+    .nav {
         text-align: center;
         position: relative;
         z-index: 3;
