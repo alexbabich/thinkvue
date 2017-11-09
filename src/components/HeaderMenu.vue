@@ -1,8 +1,8 @@
 <template>
     <b-container>
         <b-nav fill>
-            <b-nav-item v-bind:key="todo.text" v-for="todo in todos">
-                {{todo.text}}
+            <b-nav-item :href="item.url" v-bind:key="item.text" v-for="item in menuList" v-scroll-to="item.url">
+                {{item.text}}
             </b-nav-item>
         </b-nav>
     </b-container>
@@ -13,12 +13,27 @@
     name: 'HeaderMenu',
     data () {
       return {
-        todos: [
-          { text: 'Treetopers' },
-          { text: 'ПРЕИМУЩЕСТВА' },
-          { text: 'цена' },
-          { text: 'результат внедрения ' },
-          { text: 'почему именно приложения?' }
+        menuList: [
+          {
+            text: 'Treetopers',
+            url: '/'
+          },
+          {
+            text: 'ПРЕИМУЩЕСТВА',
+            url: '#advantages'
+          },
+          {
+            text: 'цена',
+            url: '#price'
+          },
+          {
+            text: 'результат внедрения',
+            url: '#result'
+          },
+          {
+            text: 'почему именно приложения?',
+            url: '#app'
+          }
         ]
       }
     }
@@ -33,9 +48,20 @@
         padding: 60px 0;
         li {
             font-weight: normal;
-            margin: 0 25px;
+            margin: 0 15px;
+            &:first-child {
+                margin-left: 0;
+                a {
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-weight: 900;
+                    font-size: 1.625rem;
+                }
+            }
+            &:nth-child(2) {
+                font-weight: 600;
+            }
             a {
-                padding: 0 25px;
+                padding: 0 5px;
                 color: #fff;
                 text-transform: uppercase;
                 &:hover {

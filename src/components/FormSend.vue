@@ -46,7 +46,8 @@
         form {
             input {
                 height: 42px;
-                width: 354px;
+                max-width: 354px;
+                width: 100%;
                 color: #000;
                 border-radius: 2px;
                 border: 1px solid #bfcacf;
@@ -58,7 +59,8 @@
         background-color: #57b1b3;
         font-size: 1.0625rem;
         line-height: 1;
-        width: 238px;
+        max-width: 238px;
+        width: 100%;
         height: 45px;
         border: none;
         cursor: pointer;
