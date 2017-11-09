@@ -73,4 +73,10 @@
             background-color: #20c997;
         }
     }
+
+    @media only screen and (max-width : 576px) {
+        .th-form-wrapper {
+            max-width: 100%;
+        }
+    }
 </style>

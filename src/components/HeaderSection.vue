@@ -33,19 +33,24 @@
 <style lang="scss">
     .th-header {
         height: 800px;
-        background: url("../assets/img/top-bg.png") no-repeat top center;
-        background-size: cover;
         position: relative;
-        z-index: 1;
+        &:after,
         &:before {
-            background-color: rgba(0, 0, 0, 0.3);
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             height: 100%;
             width: 100%;
-            z-index: 2;
+        }
+        &:after {
+            background: url("../assets/img/top-bg.png") no-repeat top center;
+            background-size: cover;
+            z-index: -2;
+        }
+        &:before {
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: -1;
         }
     }
 

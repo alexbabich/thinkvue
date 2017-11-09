@@ -6,7 +6,13 @@
             :aria-expanded="toggleState ? 'true' : 'false'"
             @click="onclick"
     >
-        <slot><span class="navbar-toggler-icon"></span></slot>
+        <slot>
+            <div id="nav-icon1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </slot>
     </button>
 </template>
 
@@ -14,6 +20,11 @@
   import $ from 'jquery'
   export default {
     name: 'NavToggle',
+    mounted () {
+      $('#nav-icon1').click(function () {
+        $(this).toggleClass('open')
+      })
+    },
     computed: {
       classObject () {
         return [
@@ -44,6 +55,7 @@
       onclick () {
         const target = this.target
         $('.' + target + '').toggle()
+        $('body').toggleClass('th-menu-open')
         this.$root.$emit('bv::toggle::collapse', this.target)
       },
       handleStateEvt (target, state) {
@@ -54,3 +66,7 @@
     }
 }
 </script>
+
+<style lang="scss">
+
+</style>
