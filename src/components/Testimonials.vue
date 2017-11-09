@@ -2,16 +2,12 @@
     <b-container class="text-center pt-5 pb-5">
         <p class="th-block-title">Отзывы</p>
         <ul class="list-unstyled row th-testimonial-list">
-            <li v-for="testimonial in testimonialsList" class="col-12 th-testimonial-item">
+            <li v-for="testimonial in testimonialsList" class="col-6 m-auto th-testimonial-item">
                 <!--TODO  local image can not to use on testimonials.img and on current way we can not to use alt with default photo-->
                 <!--<img v-if="testimonial.img" :class="testimonial.img ? 'th-testimonial-photo th-user-photo' : 'th-testimonial-photo th-default-photo'" :src="testimonial.img"/>-->
 
-                <div v-if="testimonial.img">
-                    <img class="th-testimonial-photo th-user-photo" :src="testimonial.img"/>
-                </div>
-                <div v-else>
-                    <img class="th-testimonial-photo th-user-photo" src="../assets/default-user-photo.png"/>
-                </div>
+                    <img v-if="testimonial.img" class="rounded-circle mb-4 th-user-photo" :src="testimonial.img"/>
+                    <img v-else class="rounded-circle mb-4 th-user-photo" src="../assets/default-user-photo.png"/>
 
                 <p class="th-testimonial-title">{{testimonial.user}}</p>
                 <p class="th-testimonial-text">{{testimonial.text}}</p>
@@ -38,11 +34,10 @@
 </script>
 
 <style lang="scss">
-    .th-testimonial-photo {
+    .th-user-photo {
         height: 131px;
         width: 131px;
         border: 4px solid #fff;
-        border-radius: 50%;
         box-shadow: 5px 5px 29px 2px #f0f0f0;
     }
 </style>

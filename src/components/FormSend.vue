@@ -27,7 +27,12 @@
     methods: {
       onSubmit (e) {
         e.preventDefault()
-        alert(JSON.stringify(this.form))
+//        Email.send('ababich.dev@gmail.com',
+//          'to@them.com',
+//          'This is a subject',
+//          'this is the body',
+//          {token: 'd9a47850-0cb7-4551-b127-e21caa7425d3'}
+//        )
       }
     }
   }
@@ -50,7 +55,7 @@
                 width: 100%;
                 color: #000;
                 border-radius: 2px;
-                border: 1px solid #bfcacf;
+                border: 1px solid #bfcacf !important;
                 font-size: 0.75rem;
             }
         }
