@@ -7,7 +7,7 @@
                 <!--<img v-if="testimonial.img" :class="testimonial.img ? 'th-testimonial-photo th-user-photo' : 'th-testimonial-photo th-default-photo'" :src="testimonial.img"/>-->
 
                     <img v-if="testimonial.img" class="rounded-circle mb-4 th-user-photo" :src="testimonial.img"/>
-                    <img v-else class="rounded-circle mb-4 th-user-photo" src="../assets/default-user-photo.png"/>
+                    <span v-else class="rounded-circle mb-4 th-user-photo th-default-photo"></span>
 
                 <p class="th-testimonial-title">{{testimonial.user}}</p>
                 <p class="th-testimonial-text">{{testimonial.text}}</p>
@@ -39,5 +39,11 @@
         width: 131px;
         border: 4px solid #fff;
         box-shadow: 5px 5px 29px 2px #f0f0f0;
+        &.th-default-photo {
+            background: url("../assets/img/default-user-photo.png") no-repeat;
+            display: block;
+            background-size: contain;
+            margin: auto;
+        }
     }
 </style>

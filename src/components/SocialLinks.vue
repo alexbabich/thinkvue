@@ -7,7 +7,10 @@
             </li>
         </ul>
         <p class="th-phone-number">+38 (093) 745 63 30</p>
-        <img src="../assets/img/icon-logo.png" alt="icon-logo" class="th-logo"/>
+        <!--TODO somthing wrong with src after build-->
+        <!--<img src="../assets/img/icon-logo.png" alt="icon-logo" class="th-logo"/>-->
+
+        <span class="mx-auto th-logo"></span>
     </b-container>
 </template>
 
@@ -28,7 +31,10 @@
 
 <style lang="scss">
     .th-logo {
-
+        background-image: url("../assets/img/icon-logo.png");
+        height: 42px;
+        width: 45px;
+        display: inline-block;
     }
     .th-block-subtitle {
         font-family: "Open Sans", sans-serif;
