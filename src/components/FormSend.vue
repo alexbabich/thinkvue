@@ -14,6 +14,9 @@
 </template>
 
 <script>
+//  import $ from 'jquery'
+//  import Email from '@/email/smtp'
+
   export default {
     name: 'FormSend',
     data () {
@@ -27,6 +30,7 @@
     methods: {
       onSubmit (e) {
         e.preventDefault()
+
 //        Email.send('ababich.dev@gmail.com',
 //          'to@them.com',
 //          'This is a subject',

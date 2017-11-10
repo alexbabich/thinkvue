@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header-section/>
+    <advantages/>
     <b-container>
       <div class="hello">
         <h1>{{ msg }}</h1>
@@ -21,9 +22,11 @@
   import Testimonials from '@/components/Testimonials.vue'
   import Price from '@/components/Price.vue'
   import SomeFacts from '@/components/SomeFacts.vue'
+  import Advantages from './Advantages.vue'
   export default {
     name: 'MainView',
     components: {
+      Advantages,
       SomeFacts,
       Price,
       Testimonials,
