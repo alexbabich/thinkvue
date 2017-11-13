@@ -2,7 +2,7 @@
     <b-container class="pt-5 pb-5">
         <p class="text-center th-block-title">Часто задаваемые вопросы</p>
         <ul class="list-unstyled row th-ask-list">
-            <li v-for="answer in questionList" class="col-sm-6 mb-5 th-ask-item">
+            <li v-for="answer in questionList" :key="answer.id" class="col-sm-6 mb-5 th-ask-item">
                 <p class="th-ask-title">{{answer.title}}</p>
                 <p class="th-ask-text">{{answer.text}}</p>
             </li>
@@ -33,7 +33,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .th-ask-list {
         margin-top: 78px;
     }

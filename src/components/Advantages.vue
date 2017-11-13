@@ -2,10 +2,10 @@
     <b-container>
         <p class="text-center th-block-title">Наши преимущества</p>
         <div class="row">
-            <div v-for="parent in advantegsList" class="col-6">
+            <div v-for="parent in advantegsList" :key="parent.id" class="col-6">
                 <p class="text-center">{{parent.title}}</p>
                 <ul class="list-unstyled th-advanteg-list">
-                    <li v-for="item in parent.moreinfo">
+                    <li v-for="item in parent.moreinfo" :key="item.id">
                         <p>{{item.subtitle}}</p>
                         <p>{{item.text}}</p>
                     </li>
@@ -61,7 +61,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .th-user-photo {
         height: 131px;
         width: 131px;

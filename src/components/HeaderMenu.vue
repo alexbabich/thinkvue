@@ -1,11 +1,11 @@
 <template>
     <b-container>
         <b-navbar toggleable class="row">
-            <nav-toggle target="navbar-collapse"></nav-toggle>
+            <base-nav-toggle target="navbar-collapse"></base-nav-toggle>
             <b-navbar-brand><b-link href="/">Treetopers</b-link></b-navbar-brand>
             <b-collapse is-nav id="nav_text_collapse">
                 <b-nav>
-                    <b-nav-item :href="item.url" v-bind:key="item.text" v-for="item in menuList" v-scroll-to="item.url">
+                    <b-nav-item :href="item.url" :key="item.id" v-for="item in menuList" v-scroll-to="item.url">
                         {{item.text}}
                     </b-nav-item>
                 </b-nav>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-  import NavToggle from '@/components/NavToggle.vue'
+  import BaseNavToggle from '@/components/BaseNavToggle.vue'
 
   export default {
     components: {
-      NavToggle
+      BaseNavToggle
     },
     mounted () {
     },
@@ -49,87 +49,7 @@
   }
 </script>
 
-<style lang="scss">
-    #nav-icon1,
-    #nav-icon1:focus,
-    #nav-icon1:active,
-    .navbar-light .navbar-toggler,
-    .navbar-light .navbar-toggler:focus,
-    .navbar-light .navbar-toggler:active {
-        outline: none;
-    }
-    .navbar-light .navbar-toggler {
-        border: none;
-        color: transparent;
-        padding: 0;
-    }
-    #nav-icon1 {
-        outline: none;
-        width: 25px;
-        height: 23px;
-        position: relative;
-        margin: auto;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: .5s ease-in-out;
-        -moz-transition: .5s ease-in-out;
-        -o-transition: .5s ease-in-out;
-        transition: .5s ease-in-out;
-        cursor: pointer;
-        &.open {
-            span {
-                &:nth-child(1) {
-                    top: 10px;
-                    -webkit-transform: rotate(135deg);
-                    -moz-transform: rotate(135deg);
-                    -o-transform: rotate(135deg);
-                    transform: rotate(135deg);
-                }
-                &:nth-child(2) {
-                    opacity: 0;
-                    left: -9999999px;
-                }
-                &:nth-child(3) {
-                    top: 10px;
-                    -webkit-transform: rotate(-135deg);
-                    -moz-transform: rotate(-135deg);
-                    -o-transform: rotate(-135deg);
-                    transform: rotate(-135deg);
-                }
-            }
-        }
-        span {
-            display: block;
-            position: absolute;
-            height: 2px;
-            width: 26px;
-            background: #fff;
-            border-radius: 9px;
-            opacity: 1;
-            left: 0;
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-            -webkit-transition: .25s ease-in-out;
-            -moz-transition: .25s ease-in-out;
-            -o-transition: .25s ease-in-out;
-            transition: .25s ease-in-out;
-            &:nth-child(1) {
-                top: 0;
-            }
-            &:nth-child(2) {
-                top: 10px;
-            }
-            &:nth-child(3) {
-                top: 20px;
-            }
-        }
-
-    }
-
+<style lang="scss" scoped>
     .navbar-brand a {
         padding: 0 5px;
         font-family: 'Source Sans Pro', sans-serif;
@@ -165,6 +85,7 @@
             }
         }
     }
+
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .navbar-brand {
             a {
@@ -238,6 +159,7 @@
         }
         .nav {
             margin: auto;
+            padding-bottom: 20px;
             li {
                 &:last-child {
                     margin-right: 0;

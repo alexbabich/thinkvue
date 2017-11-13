@@ -42,7 +42,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .th-form-wrapper {
         border: 1px solid #fff;
         color: #fff;

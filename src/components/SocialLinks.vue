@@ -1,16 +1,16 @@
 <template>
     <b-container class="pt-5 pb-4 text-center">
-        <p class="th-block-subtitle">Присоединятесь к нам в социальных сетях:</p>
-        <ul class="list-unstyled list-inline th-social-list">
-            <li v-for="link in linkList">
+        <p :class="[$style.thBlockSubtitle]">Присоединятесь к нам в социальных сетях:</p>
+        <ul class="list-unstyled list-inline" :class="[$style.thSocialList]">
+            <li v-for="link in linkList" :key="link.id">
                 <b-link :href=link.url :class=link.className></b-link>
             </li>
         </ul>
-        <p class="th-phone-number">+38 (093) 745 63 30</p>
+        <p :class="[$style.thPhoneNumber]">+38 (093) 745 63 30</p>
         <!--TODO somthing wrong with src after build-->
         <!--<img src="../assets/img/icon-logo.png" alt="icon-logo" class="th-logo"/>-->
 
-        <span class="mx-auto th-logo"></span>
+        <span class="mx-auto" :class="[$style.thLogo]"></span>
     </b-container>
 </template>
 
@@ -29,20 +29,20 @@
   }
 </script>
 
-<style lang="scss">
-    .th-logo {
+<style lang="scss" module>
+    .thLogo {
         background-image: url("../assets/img/icon-logo.png");
         height: 42px;
         width: 45px;
         display: inline-block;
     }
-    .th-block-subtitle {
+    .thBlockSubtitle {
         font-family: "Open Sans", sans-serif;
         font-weight: 400;
         font-size: 1rem;
         margin-bottom: 0;
     }
-    .th-social-list {
+    .thSocialList {
         text-align: center;
         margin: 22px 0;
         li {

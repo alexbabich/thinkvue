@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <header-section/>
-    <advantages/>
-    <b-container>
-      <div class="hello">
-        <h1>{{ msg }}</h1>
-      </div>
-    </b-container>
-    <price/>
-    <some-facts/>
-    <testimonials/>
-    <f-a-q/>
-    <social-links/>
+    <HeaderSection/>
+    <Advantages/>
+    <Solutions/>
+    <Price/>
+    <SomeFacts/>
+    <Testimonials/>
+    <FAQ/>
+    <SocialLinks/>
   </div>
 </template>
 
@@ -23,9 +19,11 @@
   import Price from '@/components/Price.vue'
   import SomeFacts from '@/components/SomeFacts.vue'
   import Advantages from './Advantages.vue'
+  import Solutions from './Solutions.vue'
   export default {
     name: 'MainView',
     components: {
+      Solutions,
       Advantages,
       SomeFacts,
       Price,
@@ -36,7 +34,6 @@
     },
     data () {
       return {
-        msg: ''
       }
     }
   }
