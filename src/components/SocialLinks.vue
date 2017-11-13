@@ -31,7 +31,7 @@
 
 <style lang="scss" module>
     .thLogo {
-        background-image: url("../assets/img/icon-logo.png");
+        background-image: url("../assets/img/icon-logo-new.png");
         height: 42px;
         width: 45px;
         display: inline-block;
@@ -49,7 +49,7 @@
             margin: 0 25px;
             display: inline-block;
             a {
-                background-image: url("../assets/img/icon-sprite-social.png");
+                background-image: url("../assets/img/icon-sprite-social-new.png");
                 background-repeat: no-repeat;
                 height: 33px;
                 width: 33px;

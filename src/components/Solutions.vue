@@ -77,7 +77,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            background-image: url('../assets/img/icon-benefits.png');
+            background-image: url('../assets/img/icon-benefits-new.png');
             background-repeat: no-repeat;
             background-size: auto;
             height: 35px;
