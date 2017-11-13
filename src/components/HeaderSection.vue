@@ -49,7 +49,7 @@
             width: 100%;
         }
         &:after {
-            background: url("../assets/img/top-bg-new.png") no-repeat top center;
+            background: url("../assets/img/top-bg.png") no-repeat top center;
             background-size: cover;
             z-index: -2;
         }
@@ -113,12 +113,12 @@
     }
     .th-cups {
         &:before {
-            background: url("../assets/img/icon-cups-new.png") no-repeat center top;
+            background: url("../assets/img/icon-cups.png") no-repeat center top;
         }
     }
     .th-app {
         &:before {
-            background: url("../assets/img/icon-phon-new.png") no-repeat center top;
+            background: url("../assets/img/icon-phon.png") no-repeat center top;
         }
     }
     .th-empty {
@@ -129,7 +129,7 @@
             top: -40%;
             right: -65px;
             bottom: 0;
-            background: url("../assets/img/icon-equal-new.png") no-repeat center top;
+            background: url("../assets/img/icon-equal.png") no-repeat center top;
         }
     }
 

@@ -40,7 +40,7 @@
         border: 4px solid #fff;
         box-shadow: 5px 5px 29px 2px #f0f0f0;
         &.th-default-photo {
-            background: url("../assets/img/default-user-photo-new.png") no-repeat;
+            background: url("../assets/img/default-user-photo.png") no-repeat;
             display: block;
             background-size: contain;
             margin: auto;
