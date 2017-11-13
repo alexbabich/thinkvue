@@ -53,4 +53,9 @@
         line-height: 1.5rem;
         font-weight: 400;
     }
+    @media only screen and (max-width : 576px) {
+        .th-ask-item {
+            padding: 0;
+        }
+    }
 </style>

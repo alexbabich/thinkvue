@@ -173,7 +173,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .th-testimonial-photo {
         height: 131px;
         width: 131px;

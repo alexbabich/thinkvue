@@ -39,4 +39,9 @@
         font-weight: 300;
         font-size: 1.25rem;
     }
+    @media only screen and (max-width : 576px) {
+        .th-fact-item {
+            padding: 0;
+        }
+    }
 </style>

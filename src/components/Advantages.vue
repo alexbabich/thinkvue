@@ -1,13 +1,13 @@
 <template>
-    <b-container>
+    <b-container class="mt-5">
         <p class="text-center th-block-title">Наши преимущества</p>
         <div class="row">
-            <div v-for="parent in advantegsList" :key="parent.id" class="col-6">
-                <p class="text-center">{{parent.title}}</p>
-                <ul class="list-unstyled th-advanteg-list">
+            <div v-for="parent in advantegsList" :key="parent.id" class="col-12 col-md-6" :class="[$style.thAdvantegList]">
+                <p class="text-center mb-4" :class="[$style.thAdvantTitle]">{{parent.title}}</p>
+                <ul class="list-unstyled">
                     <li v-for="item in parent.moreinfo" :key="item.id">
-                        <p>{{item.subtitle}}</p>
-                        <p>{{item.text}}</p>
+                        <p :class="[$style.thAdvantSubtitle]">{{item.subtitle}}</p>
+                        <p :class="[$style.thAdvantText]">{{item.text}}</p>
                     </li>
                 </ul>
             </div>
@@ -61,17 +61,48 @@
   }
 </script>
 
-<style lang="scss" scoped>
-    .th-user-photo {
-        height: 131px;
-        width: 131px;
-        border: 4px solid #fff;
-        box-shadow: 5px 5px 29px 2px #f0f0f0;
-        &.th-default-photo {
-            background: url("../assets/img/default-user-photo.png") no-repeat;
-            display: block;
-            background-size: contain;
-            margin: auto;
+<style lang="scss" module>
+    .thAdvantTitle {
+        font-size: 1.875rem;
+    }
+    .thAdvantegList {
+        position: relative;
+        padding: 0 50px;
+        &:first-child {
+            &:before {
+                width: 0;
+            }
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            height: 80%;
+            width: 2px;
+            background-color: #57b1b3;
+            left: -6px;
+        }
+        li {
+            margin-bottom: 25px;
+        }
+    }
+    .thAdvantSubtitle {
+        font-size: 1.5625rem;
+    }
+    .thAdvantText {
+        font-size: 1.1875rem;
+        line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+        .thAdvantegList:before {
+            width: 0;
+        }
+    }
+
+    @media only screen and (max-width : 576px) {
+        .thAdvantegList {
+            padding: 0;
+            margin: 15px 0;
         }
     }
 </style>
