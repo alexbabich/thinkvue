@@ -1,12 +1,12 @@
 <template>
     <b-container class="pt-5 pb-5" id="price">
         <!--<b-table responsive bordered :items="items" :fields="fields" class="th-table text-center"></b-table>-->
-        <table class="table table-responsive-sm text-center th-table">
+        <table class="table table-responsive text-center th-table">
             <thead>
                 <tr>
                     <th></th>
                     <th v-for="title in tableHeader" :key="title.id">
-                        <p class="">{{title.label}}</p>
+                        <p class="th-price-title" :class="title.style">{{title.label}}</p>
                     </th>
                 </tr>
             </thead>
@@ -22,11 +22,11 @@
                 <tr>
                     <th></th>
                     <th v-for="foot in tableFooter">
-                        <div class="">
-                            <p class="">{{foot.text1}}</p>
-                            <p class="">{{foot.newPrice}}</p>
-                            <p class="">{{foot.oldPrice}}<span>{{foot.oldPrice2}}</span></p>
-                            <button class="btn th-cmdBuy">Заказать</button>
+                        <div class="mt-3 th-price-additional">
+                            <p class="th-price-description">{{foot.text1}}</p>
+                            <p class="th-new-price">{{foot.newPrice}}</p>
+                            <p class="th-old-price">{{foot.oldPrice}}<span>{{foot.oldPrice2}}</span></p>
+                            <button class="mt-3 btn th-cmdBuy">Заказать</button>
                         </div>
                     </th>
                 </tr>
@@ -38,12 +38,15 @@
 <script>
   const tableHeader = [
     {
+      style: 'standard',
       label: 'Standard'
     },
     {
+      style: 'gold',
       label: 'Gold'
     },
     {
+      style: 'premium',
       label: 'Premium'
     }
   ]
@@ -195,17 +198,46 @@
 </script>
 
 <style lang="scss">
-    .th-testimonial-photo {
-        height: 131px;
-        width: 131px;
-        border: 4px solid #fff;
-        border-radius: 50%;
-        box-shadow: 5px 5px 29px 2px #f0f0f0;
+    .th-cmdBuy {
+        min-width: 226px;
+        height: 70px;
+        font-size: 1.875rem;
+        color: #fff;
+        background: #57b1b3;
     }
-
+    .th-price-additional {
+        line-height: 1;
+    }
+    .th-price-title {
+        font-size: 3.125rem;
+        font-weight: 400;
+        &.standart {
+            color: #00cbb0;
+        }
+        &.gold {
+            color: #a160c8;
+        }
+        &.premium {
+            color: #019aff;
+        }
+    }
+    .th-price-description {
+        font-size: 1.125rem;
+    }
+    .th-new-price {
+        color: #57b1b3;
+        font-weight: bold;
+        font-size: 1.875rem;
+    }
+    .th-old-price {
+        font-size: 1.125rem;
+        span {
+            margin: 0 5px;
+            text-decoration: line-through;
+        }
+    }
     .th-table {
-        thead,
-        tfoot {
+        thead {
             th {
                 border-left: 1px solid #e9ecef;
                 border-bottom: 0;
@@ -216,18 +248,6 @@
                 &:last-child {
                     border-right: 1px solid #e9ecef;
                 }
-            }
-        }
-        tfoot {
-            th {
-                border-bottom: 1px solid #e9ecef;
-                &:first-child {
-                    border-top: 1px solid #e9ecef;
-                    border-bottom: 0;
-                }
-                /*&:last-child {*/
-                    /*border-right: 1px solid #e9ecef;*/
-                /*}*/
             }
         }
         tbody {
@@ -255,7 +275,8 @@
         }
         .th-check {
             background: url("../assets/img/icon-check.png") no-repeat;
-            height: 27px;
+            background-size: contain;
+            height: 24px;
             width: 27px;
             display: inline-block;
         }
@@ -263,7 +284,7 @@
 
     @media only screen and (max-width : 1200px) {
         .th-table {
-            tr {
+            tbody tr {
                 td {
                     min-width: 19vw;
                 }
@@ -273,7 +294,7 @@
 
     @media only screen and (max-width : 992px) {
         .th-table {
-            tr {
+            tbody tr {
                 td {
                     min-width: 100%;
                 }
@@ -283,7 +304,7 @@
 
     @media only screen and (max-width : 768px) {
         .th-table {
-            tr {
+            tbody tr {
                 td {
                     min-width: 100%;
                     &:first-child {
@@ -293,6 +314,4 @@
             }
         }
     }
-
-
 </style>

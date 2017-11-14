@@ -40,6 +40,7 @@
 </script>
 
 <style lang="scss">
+  @import '../assets/css/font-awesome.min.css';
   @import '../assets/css/fonts.css';
   @import '../assets/css/general.scss';
 </style>
