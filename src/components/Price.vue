@@ -1,173 +1,194 @@
 <template>
     <b-container class="pt-5 pb-5" id="price">
-        <b-table responsive bordered :items="items" :fields="fields" class="th-table text-center"></b-table>
-        <!--<table>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<div class="">1</div>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="">2</div>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="">3</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<div class="">21</div>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="">22</div>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="">23</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<div class="">31</div>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="">32</div>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<div class="">33</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
+        <!--<b-table responsive bordered :items="items" :fields="fields" class="th-table text-center"></b-table>-->
+        <table class="table table-responsive-sm text-center th-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th v-for="title in tableHeader" :key="title.id">
+                        <p class="">{{title.label}}</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in tableContent" :key="item.id">
+                    <td>{{item.label}}</td>
+                    <td v-for="status in item.stat" :key="status.id">
+                        <span :class="status.status"></span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th v-for="foot in tableFooter">
+                        <div class="">
+                            <p class="">{{foot.text1}}</p>
+                            <p class="">{{foot.newPrice}}</p>
+                            <p class="">{{foot.oldPrice}}<span>{{foot.oldPrice2}}</span></p>
+                            <button class="btn th-cmdBuy">Заказать</button>
+                        </div>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
     </b-container>
 </template>
 
 <script>
-  const items = [
+  const tableHeader = [
     {
-      isActive: 'Платформа IOS или Android',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
+      label: 'Standard'
     },
     {
-      isActive: 'Платформы IOS и Android',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
+      label: 'Gold'
     },
     {
-      isActive: 'Синхронизация хранилища в реальном времени',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
-    },
-    {
-      isActive: 'Неограниченное количество продуктов',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
-    },
-    {
-      isActive: 'Плата за транзакцию - 0,0%',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
-    },
-    { isActive: 'Отслеживание заказов',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
-    },
-    {
-      isActive: 'Поиск',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
-    },
-    {
-      isActive: 'Рекомендуемые товары',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
-    },
-    {
-      isActive: 'Индивидуальные категории',
-      standard: true,
-      gold: true,
-      premium: true,
-      _cellVariants: {
-        gold: 'best-choose',
-        premium: 'th-inner-table',
-        standard: 'th-inner-table'
-      }
+      label: 'Premium'
     }
   ]
-  const fields = [
+  const tableContent = [
     {
-      key: 'isActive',
-      label: ' '
+      label: 'Платформа IOS или Android',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
     },
     {
-      key: 'standard',
-      label: 'Standard',
-      formatter: (value) => { return value ? '-' : '+' }
+      label: 'Платформы IOS и Android',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
     },
     {
-      key: 'gold',
-      label: 'Gold',
-      variant: 'best-choose',
-      formatter: (value) => { return value ? '-' : '+' }
+      label: 'Синхронизация хранилища в реальном времени',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
     },
     {
-      key: 'premium',
-      label: 'Premium',
-      formatter: (value) => { return value ? '-' : '+' }
+      label: 'Неограниченное количество продуктов',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
+    },
+    {
+      label: 'Отслеживание заказов',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
+    },
+    {
+      label: 'Поиск',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
+    },
+    {
+      label: 'Рекомендуемые товары',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
+    },
+    {
+      label: 'Индивидуальные категории',
+      stat: [
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        },
+        {
+          status: 'th-check'
+        }
+      ]
     }
   ]
+  const tableFooter = [
+    {
+      text1: 'Стоимость сейчас',
+      newPrice: '1150 грн',
+      oldPrice: 'Стоимость :',
+      oldPrice2: ' 1840 грн'
+    },
+    {
+      text1: 'Стоимость сейчас',
+      newPrice: '2150 грн',
+      oldPrice: 'Стоимость :',
+      oldPrice2: ' 3840 грн'
+    },
+    {
+      text1: 'Стоимость сейчас',
+      newPrice: '2550 грн',
+      oldPrice: 'Стоимость :',
+      oldPrice2: ' 4140 грн'
+    }
+  ]
+
   export default {
     name: 'Price',
     data () {
       return {
-        fields: fields,
-        items: items
+        tableHeader: tableHeader,
+        tableContent: tableContent,
+        tableFooter: tableFooter
       }
     }
   }
@@ -183,18 +204,95 @@
     }
 
     .th-table {
-        tr {
-            td {
-                min-width: 266px;
-                vertical-align: middle;
+        thead,
+        tfoot {
+            th {
+                border-left: 1px solid #e9ecef;
+                border-bottom: 0;
+                &:first-child {
+                    border-top: 0;
+                    border-left: 0;
+                }
+                &:last-child {
+                    border-right: 1px solid #e9ecef;
+                }
             }
-            td:first-child {
-                min-width: 304px;
+        }
+        tfoot {
+            th {
+                border-bottom: 1px solid #e9ecef;
+                &:first-child {
+                    border-top: 1px solid #e9ecef;
+                    border-bottom: 0;
+                }
+                /*&:last-child {*/
+                    /*border-right: 1px solid #e9ecef;*/
+                /*}*/
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    border-left: 1px solid #e9ecef;
+                    min-width: 266px;
+                    vertical-align: middle;
+                    &:first-child {
+                        min-width: 304px;
+                    }
+                    &:last-child {
+                        border-right: 1px solid #e9ecef;
+                    }
+                }
+            }
+        }
+
+        thead,
+        tbody {
+            th:nth-child(3),
+            td:nth-child(3) {
+                background-color: #ebf6f6;
+            }
+        }
+        .th-check {
+            background: url("../assets/img/icon-check.png") no-repeat;
+            height: 27px;
+            width: 27px;
+            display: inline-block;
+        }
+    }
+
+    @media only screen and (max-width : 1200px) {
+        .th-table {
+            tr {
+                td {
+                    min-width: 19vw;
+                }
             }
         }
     }
 
-    .table-best-choose {
-        background-color: #ebf6f6;
+    @media only screen and (max-width : 992px) {
+        .th-table {
+            tr {
+                td {
+                    min-width: 100%;
+                }
+            }
+        }
     }
+
+    @media only screen and (max-width : 768px) {
+        .th-table {
+            tr {
+                td {
+                    min-width: 100%;
+                    &:first-child {
+                        min-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+
 </style>
