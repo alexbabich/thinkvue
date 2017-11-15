@@ -4,6 +4,7 @@
     <Advantages/>
     <Solutions/>
     <IntroductionResult/>
+    <IntroductionStep/>
     <Price/>
     <SomeFacts/>
     <Testimonials/>
@@ -23,6 +24,7 @@
   import Advantages from '@/components/Advantages.vue'
   import Solutions from '@/components/Solutions.vue'
   import IntroductionResult from '@/components/IntroductionResult.vue'
+  import IntroductionStep from '@/components/IntroductionStep.vue'
   import FormSend from '@/components/FormSend.vue'
   export default {
     name: 'MainView',
@@ -36,6 +38,7 @@
       HeaderSection,
       SocialLinks,
       IntroductionResult,
+      IntroductionStep,
       FormSend
     },
     data () {
