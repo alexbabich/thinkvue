@@ -1,5 +1,6 @@
 <template>
     <b-container class="pt-5 pb-5" id="price">
+        <p class="text-center th-block-title">Цена</p>
         <!--<b-table responsive bordered :items="items" :fields="fields" class="th-table text-center"></b-table>-->
         <table class="table table-responsive text-center th-table">
             <thead>
