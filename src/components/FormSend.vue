@@ -1,6 +1,6 @@
 <template>
-    <b-col lg="4" class="m-auto p-4 text-center th-form-wrapper">
-        <h2 class="mb-4 mt-2">Узнай как использовать<br/>приложение в своем бизнесе</h2>
+    <b-col lg="4" class="m-auto p-4 text-center th-form-wrapper" :class="formClass">
+        <h2 class="mb-4 mt-2">{{formTitle}}</h2>
         <b-form @submit="onSubmit" validated>
             <b-form-group>
                 <b-form-input class="mx-auto" id="nameInput" type="text" v-model="form.name" required placeholder="Имя"></b-form-input>
@@ -19,6 +19,7 @@
 
   export default {
     name: 'FormSend',
+    props: ['formTitle', 'formClass'],
     data () {
       return {
         form: {
@@ -47,8 +48,13 @@
         border: 1px solid #fff;
         color: #fff;
         max-width: 404px;
+        margin-top: 0 !important;
+        &.th-form-footer {
+            border-color: #000;
+            color: #000;
+        }
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 300;
             line-height: 1.75rem;
         }
@@ -61,6 +67,7 @@
                 border-radius: 2px;
                 border: 1px solid #bfcacf !important;
                 font-size: 0.75rem;
+                padding: 15px 25px;
             }
         }
     }

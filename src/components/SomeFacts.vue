@@ -2,7 +2,7 @@
     <b-container class="pt-5 pb-5">
         <p class="th-block-title text-center">Некоторые факты</p>
         <ul class="list-unstyled row th-fact-list">
-            <li v-for="fact in factList" :key="fact.id" class="col-sm-6 th-fact-item mb-4">
+            <li v-for="fact in factList" :key="fact.id" class="col-12 col-md-6 th-fact-item mb-4">
                 <p class="th-fact-text">{{fact.text}}</p>
             </li>
         </ul>

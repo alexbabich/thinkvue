@@ -1,9 +1,9 @@
 <template>
     <b-container class="pt-5 pb-5">
-        <p class="th-block-title text-center">Некоторые факты</p>
+        <p class="th-block-title text-center">Наши решения</p>
         <ul class="list-unstyled row th-solution-list">
             <li v-for="solution in solutionList" :key="solution.id" class="col-sm-12 col-md-6 col-lg-4 th-solution-item">
-                <p class="mb-4 th-solution-title" :class="solution.img">{{solution.title}}</p>
+                <p class="mb-3 th-solution-title" :class="solution.img">{{solution.title}}</p>
                 <p class="th-solution-text">{{solution.text}}</p>
             </li>
         </ul>

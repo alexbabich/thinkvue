@@ -3,10 +3,12 @@
     <HeaderSection/>
     <Advantages/>
     <Solutions/>
+    <IntroductionResult/>
     <Price/>
     <SomeFacts/>
     <Testimonials/>
     <FAQ/>
+    <FormSend :formTitle="formSendMessage" :formClass="formSendClass"/>
     <SocialLinks/>
   </div>
 </template>
@@ -18,8 +20,10 @@
   import Testimonials from '@/components/Testimonials.vue'
   import Price from '@/components/Price.vue'
   import SomeFacts from '@/components/SomeFacts.vue'
-  import Advantages from './Advantages.vue'
-  import Solutions from './Solutions.vue'
+  import Advantages from '@/components/Advantages.vue'
+  import Solutions from '@/components/Solutions.vue'
+  import IntroductionResult from '@/components/IntroductionResult.vue'
+  import FormSend from '@/components/FormSend.vue'
   export default {
     name: 'MainView',
     components: {
@@ -30,10 +34,14 @@
       Testimonials,
       FAQ,
       HeaderSection,
-      SocialLinks
+      SocialLinks,
+      IntroductionResult,
+      FormSend
     },
     data () {
       return {
+        formSendMessage: 'Оставте свои контакты\nи мы вам презвоним',
+        formSendClass: 'th-form-footer'
       }
     }
   }

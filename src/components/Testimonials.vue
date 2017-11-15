@@ -2,7 +2,7 @@
     <b-container class="text-center pt-5 pb-5">
         <p class="th-block-title">Отзывы</p>
         <ul class="list-unstyled row th-testimonial-list">
-            <li v-for="testimonial in testimonialsList" :key="testimonial.id" class="col-sm-6 m-auto th-testimonial-item">
+            <li v-for="testimonial in testimonialsList" :key="testimonial.id" class="col-8 col-md-6 m-auto th-testimonial-item">
                 <!--TODO  local image can not to use on testimonials.img and on current way we can not to use alt with default photo-->
                 <!--<img v-if="testimonial.img" :class="testimonial.img ? 'th-testimonial-photo th-user-photo' : 'th-testimonial-photo th-default-photo'" :src="testimonial.img"/>-->
 
