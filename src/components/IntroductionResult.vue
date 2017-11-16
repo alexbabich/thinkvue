@@ -1,5 +1,5 @@
 <template>
-    <b-container class="pt-5 pb-5">
+    <b-container class="pt-5 pb-5" id="result">
         <p class="text-center th-block-title">Результат внедрения</p>
         <div class="row">
             <ul class="col-12 col-md-6 list-unstyled th-result-list">

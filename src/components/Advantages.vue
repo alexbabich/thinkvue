@@ -1,5 +1,5 @@
 <template>
-    <b-container class="mt-5">
+    <b-container class="mt-5" id="advantages">
         <p class="text-center th-block-title">Наши преимущества</p>
         <div class="row">
             <div v-for="parent in advantegsList" :key="parent.id" class="col-12 col-md-6" :class="[$style.thAdvantegList]">

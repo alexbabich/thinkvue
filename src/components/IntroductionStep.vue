@@ -1,5 +1,5 @@
 <template>
-    <b-container class="pt-5 pb-5">
+    <b-container class="pt-5 pb-5" id="application">
         <p class="text-center th-block-title">Как происходит внедрение?</p>
         <div class="row">
             <div v-for="step in stepList" :key="step.id" class="col-12 col-xl-6 mb-5">
