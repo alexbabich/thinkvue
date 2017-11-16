@@ -12,11 +12,18 @@
                 </ul>
             </div>
         </div>
+        <vm-back-top :bottom="30" :duration="1000" :timing="'ease'">
+            <div :class="[$style.top]"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
+        </vm-back-top>
     </b-container>
 </template>
 
 <script>
+  import VmBackTop from 'vue-multiple-back-top'
   export default {
+    components: {
+      VmBackTop
+    },
     name: 'Advantages',
     data () {
       return {
@@ -91,6 +98,17 @@
     .thAdvantText {
         font-size: 1.1875rem;
         line-height: 1.4;
+    }
+
+    .top {
+        padding: 5px;
+        background: rgba(195, 195, 195, 0.7);
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        &:hover {
+            background: rgba(195, 195, 195, 0.4);
+        }
     }
 
     @media (max-width: 768px) {

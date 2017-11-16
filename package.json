@@ -59,6 +59,7 @@
     "url-loader": "^0.5.8",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.3.0",
+    "vue-multiple-back-top": "^1.0.2",
     "vue-scrollto": "^2.7.10",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
