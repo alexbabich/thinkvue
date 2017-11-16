@@ -16,6 +16,22 @@
 <script>
 //  import $ from 'jquery'
 //  import Email from '@/email/smtp'
+//  /*import nodemailer from 'nodemailer'
+//
+//  const transporter = nodemailer.createTransport({
+//    service: 'gmail',
+//    auth: {
+//      user: 'babich.bober@gmail.com',
+//      pass: 'babich806613'
+//    }
+//  })
+//
+//  const mailOptions = {
+//    from: 'babich.bober@gmail.com',
+//    to: 'ababich.dev@gmail.com',
+//    subject: 'Sending Email using Node.js',
+//    text: 'That was easy!'
+//  }*/
 
   export default {
     name: 'FormSend',
@@ -31,6 +47,13 @@
     methods: {
       onSubmit (e) {
         e.preventDefault()
+//        /*transporter.sendMail(mailOptions, function (error, info) {
+//          if (error) {
+//            console.log(error)
+//          } else {
+//            console.log('Email sent: ' + info.response)
+//          }
+//        })*/
 
 //        Email.send('ababich.dev@gmail.com',
 //          'to@them.com',
