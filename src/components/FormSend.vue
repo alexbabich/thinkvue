@@ -29,7 +29,7 @@
       onSubmit (e) {
         e.preventDefault()
         $.ajax({
-          url: 'https://formspree.io/test@test.test',
+          url: 'https://formspree.io/ithinkersteam@gmail.com',
           method: 'POST',
           data: $('.th-send-form').serialize(),
           dataType: 'json'
