@@ -27,5 +27,26 @@ body {
   }
 }
 
+.th-view-more {
+  outline: none;
+  margin: auto;
+  display: block;
+  border: 0;
+  font-size: 1.25rem;
+  color: #282828;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  i {
+    margin-left: 10px;
+    transform: rotate(-180deg);
+  }
+}
+
+.is-collapsed + .th-view-more i {
+  transform: rotate(0);
+}
+
 
 @import 'media';

@@ -1,6 +1,6 @@
 <template>
     <b-container class="text-center">
-        <b-link href="#foo" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></b-link>
+        <button v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></button>
     </b-container>
 </template>
 
@@ -9,6 +9,7 @@
     name: 'ViewMore',
     data () {
       return {
+        collapsed: true
       }
     }
   }

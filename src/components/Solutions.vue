@@ -1,24 +1,22 @@
 <template>
     <b-container class="pt-5 pb-5">
         <p class="th-block-title text-center">Наши решения</p>
-        <ul class="list-unstyled row th-solution-list">
+        <ul class="list-unstyled row th-solution-list" v-bind:class="{'is-collapsed' : collapsed }">
             <li v-for="solution in solutionList" :key="solution.id" class="col-sm-12 col-md-6 col-lg-4 th-solution-item">
                 <p class="mb-3 th-solution-title" :class="solution.img">{{solution.title}}</p>
                 <p class="th-solution-text">{{solution.text}}</p>
             </li>
         </ul>
-        <view-more/>
+        <button v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></button>
     </b-container>
 </template>
 
 <script>
-  import ViewMore from '@/components/ViewMore.vue'
-
   export default {
-    components: {ViewMore},
     name: 'Solutions',
     data () {
       return {
+        collapsed: true,
         solutionList: [
           {
             img: 'th-rocket',
@@ -49,6 +47,81 @@
             img: 'th-fb',
             title: 'Присоединение социальных сетей',
             text: 'Все страницы социальных сетей (Facebook, Twitter, Instagram и т. д.) будут добавлены в приложение.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Категории',
+            text: 'Категории и подкатегории отображаются в динамических, а также в настраиваемых макетах.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Полностью Native',
+            text: 'Это полностью собственные приложения. Производительность и пользовательский интерфейс лучше, когда вы используете Native приложения.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Способы оплаты',
+            text: 'Платежи privat24, liqpay, возможность оплаты банковской картой интегрированы в мобильное приложение.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Вход в приложение',
+            text: 'Вы сможете напрямую войти в систему.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Сообщения и уведомления',
+            text: 'Получить сообщение об ошибке на ваш имейл. Отправить предложение или информацию о новых поступлениях вашим пользователям.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Deep Linking',
+            text: 'Пользователь делится своими продуктами с помощью Deep linking. Это дает лучший UX и увеличивает базу пользователей.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Несколько видов отображения товаров',
+            text: 'Мы предоставляем возможность выбора между отображением "Список" и "Сетка & Столбец".'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Сортировка продуктов',
+            text: 'Сортируйте список товаров по датам, ценам, алфавитным или индивидуальным заказам.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Обновления приложений',
+            text: 'Обновления приложений будут предоставлены для исправления проблем и в соответствии с требованиями.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Загрузки приложений',
+            text: 'Неограниченное количество загрузок приложения для Android и iOS..'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Плата за транзакцию - 0,0%',
+            text: 'Дополнительная плата отсутствует.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Местные языки',
+            text: 'Получите приложение на своем языке. Подключайтесь к своим людям.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Синхронизация хранилища в реальном времени',
+            text: 'Все категории продуктов и списки синхронизируются с приложением в режиме реального времени.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Поддержка',
+            text: 'Мы обеспечиваем поддержку мирового класса, 24 * 7 - через звонки, электронную почту и портал поддержки.'
+          },
+          {
+            img: 'th-rocket',
+            title: 'Интеграция с Poster',
+            text: 'Получите приложение на своем языке. Подключайтесь к своим людям.'
           }
         ]
       }
@@ -57,7 +130,10 @@
 </script>
 
 <style lang="scss" scoped>
-    .th-solution-list {
+    .is-collapsed {
+        li:nth-child(n+7) {
+            display: none;
+        }
     }
     .th-solution-item {
         margin-bottom: 60px;
