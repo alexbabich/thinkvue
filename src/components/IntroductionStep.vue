@@ -2,7 +2,7 @@
     <b-container class="pt-5 pb-5">
         <p class="text-center th-block-title">Как происходит внедрение?</p>
         <div class="row">
-            <div v-for="step in stepList" :key="step.id" class="col-12 col-xl-6 mb-5">
+            <div v-for="step in stepList" :key="step.id" class="col-12 col-xl-6 mb-5 th-steps-wrapper">
                 <p class="text-center th-step-title">{{step.title}}</p>
                 <ul class="list-unstyled" :class="step.className">
                     <li v-for="steps in step.steps" :key="steps.id" :class="steps.img">
@@ -109,6 +109,7 @@
         text-align: center;
         margin-bottom: 5px;
         margin-top: 179px;
+        margin-bottom: 100px;
         span {
             display: block;
         }
@@ -356,9 +357,6 @@
         font-weight: 700;
         margin-bottom: 60px ;
     }
-    .th-step-list {
-
-    }
 
     @media only screen and (max-width : 1300px) {
         .th-our .th-design .th-step-label {
@@ -368,26 +366,54 @@
     }
 
     @media only screen and (max-width : 1200px) {
-        .th-our .th-design .th-step-label {
-            left: -60px;
+        .th-our {
+            width: 55%;
+            .th-design .th-step-label {
+                left: -70px;
+            }
+            .th-connection .th-step-label {
+                left: 45px;
+            }
         }
-        .th-our .th-connection .th-step-label {
-            left: 45px;
+        .th-other {
+            width: 70%;
+            &:before {
+                display: none;
+            }
+            .th-connection .th-step-label {
+                left: -50px;
+                top: -10px;
+            }
+            .th-tech .th-step-label,
+            .th-tech2 .th-step-label {
+                margin-top: 10px;
+                right: -70px;
+            }
+            .th-tech2 .th-step-label {
+                top: -78px;
+            }
         }
-        .th-other .th-connection .th-step-label {
-            left: -120px;
+
+        .th-steps-wrapper {
+            margin-bottom: 60px;
         }
+
+    }
+
+    @media only screen and (max-width : 960px) {
+
     }
 
     @media only screen and (max-width : 768px) {
         .th-other .th-connection .th-step-label {
-            left: -24px;
-            top: 65px;
+            left: 10px;
         }
-        .th-our,
-        .th-other {
+        .th-our {
             width: 70%;
-            margin: auto;
+        }
+
+        .th-other {
+            width: 85%;
         }
     }
 
@@ -405,7 +431,7 @@
             }
             .th-design {
                 .th-step-label {
-                    margin-top: 90px;
+                    margin-top: 20px;
                     padding-bottom: 10px;
                     left: -13px;
                     width: 80px;
@@ -413,21 +439,41 @@
             }
             .th-exam {
                 .th-step-label {
-                    top: 90px;
-                    width: 160px;
-                    left: -21px;
+                    top: 0;
+                    width: 155px;
+                    left: -60px;
                 }
             }
             .th-shopping {
                 .th-step-label {
-                    top: -40px;
-                    left: -30px;
+                    top: -50px;
+                    left: -70px;
                 }
+            }
+            .th-programming {
+                .th-step-label {
+                    top: 29px;
+                    width: 85px;
+                }
+            }
+            .th-connection {
+                .th-step-label {
+                    top: 15px;
+                    width: 80px;
+                    left: -15px;
+                }
+            }
+            .th-tech .th-step-label,
+            .th-tech2 .th-step-label {
+                top: 10px;
+                width: 96px;
+                right: -60px;
             }
             .th-tech2 {
                 .th-step-label {
-                    margin-top: 105px;
+                    margin-top: 0;
                     right: -20px;
+                    top: -30px;
                 }
             }
         }
@@ -435,43 +481,75 @@
         .th-our {
             .th-connection {
                 .th-step-label {
-                    left: 37px;
+                    top: -55px;
+                    padding-bottom: 5px;
+                    left: 58px;
+                    width: 83px;
                 }
             }
             .th-exam {
                 .th-step-label {
-                    left: -36px;
-                    top: 100px;
+                    left: -65px;
+                    top: 13px;
+                    width: 145px;
                 }
             }
             .th-shopping {
                 .th-step-label {
-                    bottom: -135px;
+                    top: 20px;
+                    right: -75px;
                 }
             }
+        }
+
+        .th-step-price {
+            margin-top: 125px;
+            margin-bottom: 70px;
         }
     }
     @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
         .th-our .th-exam .th-step-label {
-            left: -20px;
-            top: 90px;
+            left: -60px;
+            top: 0;
         }
         .th-our .th-shopping .th-step-label {
-            right: -20px;
+            right: -70px;
+            width: 140px;
         }
         .th-our .th-connection .th-step-label {
-            left: 27px;
-            top: -44px;
+            width: 80px;
+            padding-left: 0;
+            padding-right: 0;
+            top: -30px;
         }
         .th-other .th-tech .th-step-label,
         .th-other .th-tech2 .th-step-label {
             right: -26px;
         }
+
+        .th-other .th-idea .th-step-label {
+            top: 61px;
+            left: -48px;
+            width: 80px;
+        }
+
+        .th-other .th-discause .th-step-label {
+            top: -10px;
+            right: -40px;
+        }
+
+        .th-other .th-design .th-step-label {
+            left: -31px;
+        }
+
+        .th-other .th-connection .th-step-label {
+            left: 30px;
+        }
     }
 
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){
         .th-other .th-connection .th-step-label {
-            left: -124px;
+            left: -40px;
         }
     }
 
