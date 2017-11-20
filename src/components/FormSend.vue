@@ -1,22 +1,20 @@
 <template>
     <b-col lg="4" class="m-auto p-4 text-center th-form-wrapper" :class="formClass">
         <h2 class="mb-4 mt-2">{{formTitle}}</h2>
-        <b-form @submit="onSubmit" validated class="th-send-form">
+        <b-form validated class="th-send-form" action="https://formspree.io/ithinkersteam@gmail.com" method="POST">
             <b-form-group>
                 <b-form-input class="mx-auto" id="nameInput" name="name" type="text" required placeholder="Имя"></b-form-input>
             </b-form-group>
             <b-form-group>
                 <b-form-input class="mx-auto" id="phoneInput" name="phone" type="tel" required placeholder="Телефон"></b-form-input>
             </b-form-group>
-            <!--<input type="hidden" name="_language" value="ru" />-->
-            <!--<input type="text" name="_gotcha" style="display:none" />-->
             <b-button type="submit" class="th-cmdSend mt-3 mb-4">Узнать</b-button>
         </b-form>
     </b-col>
 </template>
 
 <script>
-  import $ from 'jquery'
+//  import $ from 'jquery'
 
   export default {
     name: 'FormSend',
@@ -26,16 +24,15 @@
       }
     },
     methods: {
-      onSubmit (e) {
-        e.preventDefault()
-        $.ajax({
+//      onSubmit (e) {
+//        e.preventDefault()
+//        $.ajax({
 //          url: 'https://formspree.io/ithinkersteam@gmail.com',
-          url: 'https://formspree.io/babich.bober@gmail.com',
-          method: 'POST',
-          data: $('.th-send-form').serialize(),
-          dataType: 'json'
-        })
-      }
+//          method: 'POST',
+//          data: $('.th-send-form').serialize(),
+//          dataType: 'json'
+//        })
+//      }
     }
   }
 </script>
