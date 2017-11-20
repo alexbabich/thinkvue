@@ -29,7 +29,8 @@
       onSubmit (e) {
         e.preventDefault()
         $.ajax({
-          url: 'https://formspree.io/ithinkersteam@gmail.com',
+//          url: 'https://formspree.io/ithinkersteam@gmail.com',
+          url: 'https://formspree.io/babich.bober@gmail.com',
           method: 'POST',
           data: $('.th-send-form').serialize(),
           dataType: 'json'
@@ -50,7 +51,7 @@
             color: #000;
         }
         h2 {
-            font-size: 1.45rem;
+            font-size: 1.49rem;
             font-weight: 300;
             line-height: 1.75rem;
         }

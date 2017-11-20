@@ -55,7 +55,7 @@
             z-index: -2;
         }
         &:before {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
     }
@@ -94,6 +94,7 @@
     .th-empty {
         padding-top: 180px;
         padding-top: 6em;
+        font-weight: 600;
         font-size: 1.875rem;
         line-height: 1;
         text-align: center;

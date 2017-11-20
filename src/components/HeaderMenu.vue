@@ -70,10 +70,16 @@
         li {
             font-weight: normal;
             margin: 0 15px;
+            &:first-child {
+                a {
+                    font-family: "Open Sans", sans-serif;
+                }
+            }
             a {
                 padding: 5px;
                 color: #fff;
                 text-transform: uppercase;
+                font-family: "MyriadProSemiBold", sans-serif;
                 line-height: 1;
                 display: flex;
                 margin: 15px 0;

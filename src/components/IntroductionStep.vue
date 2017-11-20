@@ -1,5 +1,5 @@
 <template>
-    <b-container class="pt-5 pb-5" id="application">
+    <b-container class="pt-5 pb-5">
         <p class="text-center th-block-title">Как происходит внедрение?</p>
         <div class="row">
             <div v-for="step in stepList" :key="step.id" class="col-12 col-xl-6 mb-5">
@@ -108,18 +108,18 @@
         line-height: 1.2;
         text-align: center;
         margin-bottom: 5px;
-        margin-top: 130px;
+        margin-top: 179px;
         span {
             display: block;
         }
     }
     .th-other {
         background: url("../assets/img/line-2.png") no-repeat;
-        height: 1260px;
+        height: 965px;
     }
     .th-our {
         background: url("../assets/img/line.png") no-repeat;
-        height: 570px;
+        height: 415px;
     }
     .th-step-label {
         text-align: center;
@@ -131,6 +131,7 @@
         position: relative;
         background: #fff;
         border-radius: 20px;
+        height: 0;
         &:before {
             content: '';
             position: absolute;
@@ -149,6 +150,9 @@
     .th-other {
         position: relative;
         background-size: 100% 100%;
+        width: 80%;
+        padding: 0 10px;
+        margin: auto;
         li {
             width: 100%;
             clear: both;
@@ -215,94 +219,134 @@
     }
 
     .th-other {
+        &:before {
+            content: "";
+            position: absolute;
+            left: -70px;
+            top: 10px;
+            width: 2px;
+            background-color: #57b1b3;
+            height: 118%;
+        }
         .th-idea {
             .th-step-label {
-                top: 45px;
+                top: 50px;
                 width: 100px;
             }
         }
         .th-discause {
             .th-step-label {
-                top: 10px;
-                right: 23px;
-                width: 122px;
+                top: -5px;
+                right: 10px;
+                width: 110px;
                 padding-bottom: 10px;
+                height: auto;
             }
         }
         .th-design {
             .th-step-label {
-                margin-top: 74px;
-                left: 20px;
-                width: 102px;
+                margin-top: 20px;
+                width: 90px;
+                height: auto;
             }
         }
         .th-tech,
         .th-tech2 {
             .th-step-label {
-                margin-top: 48px;
-                padding-bottom: 10px;
+                margin-top: 20px;
                 width: 145px;
                 right: -46px;
+                height: auto;
+            }
+        }
+        .th-tech2 {
+            .th-step-label {
+                margin-top: 0;
+                top: -40px;
             }
         }
         .th-programming {
             .th-step-label {
-                top: 48px;
                 padding-bottom: 10px;
                 width: 125px;
                 left: -30px;
+                height: auto;
             }
         }
         .th-connection {
             .th-step-label {
-                top: 50px;
-                left: -50px;
+                top: -15px;
+                left: -35px;
                 width: 106px;
+                height: auto;
             }
         }
         .th-exam {
             .th-step-label {
                 width: 235px;
-                top: 41px;
                 padding-right: 10px;
-                left: -49px;
+                left: -60px;
+                top: -40px;
+                height: auto;
+                &:before {
+                    background-color: #fff;
+                    width: 55px;
+                }
             }
         }
         .th-shopping {
             .th-step-label {
-                top: -40px;
-                left: -30px;
+                top: -130px;
+                left: -50px;
+                background: transparent;
+                &:before {
+                    background-color: #fff;
+                    width: 60px;
+                }
             }
         }
     }
 
     .th-our {
+        width: 65%;
         .th-design {
             .th-step-label {
-                top: 45px;
+                top: 50px;
+                left: -100px;
+                background: transparent;
+                width: 200px;
+                &:before {
+                    background-color: #fff;
+                }
             }
         }
         .th-connection {
             .th-step-label {
-                left: 45px;
-                top: -67px;
+                left: 70px;
+                top: -32px;
                 width: 120px;
                 padding-left: 10px;
                 padding-right: 10px;
                 text-align: center;
+                height: auto;
             }
         }
         .th-exam {
             .th-step-label {
-                bottom: -43px;
+                top: 5px;
                 padding-bottom: 5px;
-                left: -44px;
+                left: -120px;
+                width: 250px;
+                height: auto;
             }
         }
         .th-shopping {
             .th-step-label {
-                bottom: -65px;
-                right: -44px;
+                right: -90px;
+                background: transparent;
+                &:before {
+                    background-color: #fff;
+                }
             }
         }
     }
@@ -316,9 +360,19 @@
 
     }
 
+    @media only screen and (max-width : 1300px) {
+        .th-our .th-design .th-step-label {
+            width: 200px;
+            left: -18%;
+        }
+    }
+
     @media only screen and (max-width : 1200px) {
+        .th-our .th-design .th-step-label {
+            left: -60px;
+        }
         .th-our .th-connection .th-step-label {
-            left: 60px;
+            left: 45px;
         }
         .th-other .th-connection .th-step-label {
             left: -120px;
@@ -329,6 +383,11 @@
         .th-other .th-connection .th-step-label {
             left: -24px;
             top: 65px;
+        }
+        .th-our,
+        .th-other {
+            width: 70%;
+            margin: auto;
         }
     }
 
@@ -415,4 +474,5 @@
             left: -124px;
         }
     }
+
 </style>
