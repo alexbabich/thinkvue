@@ -49,77 +49,77 @@
             text: 'Все страницы социальных сетей (Facebook, Twitter, Instagram и т. д.) будут добавлены в приложение.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-category',
             title: 'Категории',
             text: 'Категории и подкатегории отображаются в динамических, а также в настраиваемых макетах.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-native',
             title: 'Полностью Native',
             text: 'Это полностью собственные приложения. Производительность и пользовательский интерфейс лучше, когда вы используете Native приложения.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-payment',
             title: 'Способы оплаты',
             text: 'Платежи privat24, liqpay, возможность оплаты банковской картой интегрированы в мобильное приложение.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-user',
             title: 'Вход в приложение',
             text: 'Вы сможете напрямую войти в систему.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-ring',
             title: 'Сообщения и уведомления',
             text: 'Получить сообщение об ошибке на ваш имейл. Отправить предложение или информацию о новых поступлениях вашим пользователям.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-path',
             title: 'Deep Linking',
             text: 'Пользователь делится своими продуктами с помощью Deep linking. Это дает лучший UX и увеличивает базу пользователей.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-mix',
             title: 'Несколько видов отображения товаров',
             text: 'Мы предоставляем возможность выбора между отображением "Список" и "Сетка & Столбец".'
           },
           {
-            img: 'th-rocket',
+            img: 'th-sort',
             title: 'Сортировка продуктов',
             text: 'Сортируйте список товаров по датам, ценам, алфавитным или индивидуальным заказам.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-repeat',
             title: 'Обновления приложений',
             text: 'Обновления приложений будут предоставлены для исправления проблем и в соответствии с требованиями.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-download',
             title: 'Загрузки приложений',
             text: 'Неограниченное количество загрузок приложения для Android и iOS..'
           },
           {
-            img: 'th-rocket',
+            img: 'th-money',
             title: 'Плата за транзакцию - 0,0%',
             text: 'Дополнительная плата отсутствует.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-translate',
             title: 'Местные языки',
             text: 'Получите приложение на своем языке. Подключайтесь к своим людям.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-bolt',
             title: 'Синхронизация хранилища в реальном времени',
             text: 'Все категории продуктов и списки синхронизируются с приложением в режиме реального времени.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-support',
             title: 'Поддержка',
             text: 'Мы обеспечиваем поддержку мирового класса, 24 * 7 - через звонки, электронную почту и портал поддержки.'
           },
           {
-            img: 'th-rocket',
+            img: 'th-path',
             title: 'Интеграция с Poster',
             text: 'Получите приложение на своем языке. Подключайтесь к своим людям.'
           }
@@ -180,6 +180,48 @@
         &.th-fb:before {
             height: 29px;
             background-position: 100% 100%;
+        }
+        &.th-category:before {
+            background-image: url("../assets/img/icon-category.png");
+        }
+        &.th-native:before {
+            background-image: url("../assets/img/icon-native.png");
+        }
+        &.th-payment:before {
+            background-image: url("../assets/img/icon-payment.png");
+        }
+        &.th-user:before {
+            background-image: url("../assets/img/icon-user.png");
+        }
+        &.th-ring:before {
+            background-image: url("../assets/img/icon-ring.png");
+        }
+        &.th-path:before {
+            background-image: url("../assets/img/icon-path.png");
+        }
+        &.th-mix:before {
+            background-image: url("../assets/img/icon-mix.png");
+        }
+        &.th-native:before {
+            background-image: url("../assets/img/icon-native.png");
+        }
+        &.th-sort:before {
+            background-image: url("../assets/img/icon-sort.png");
+        }
+        &.th-repeat:before {
+            background-image: url("../assets/img/icon-repeat.png");
+        }
+        &.th-download:before {
+            background-image: url("../assets/img/icon-download.png");
+        }
+        &.th-money:before {
+            background-image: url("../assets/img/icon-money.png");
+        }
+        &.th-translate:before {
+            background-image: url("../assets/img/icon-translate.png");
+        }
+        &.th-support:before {
+            background-image: url("../assets/img/icon-support.png");
         }
     }
 

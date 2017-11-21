@@ -2,7 +2,7 @@
     <b-container class="pt-5 pb-5" id="price">
         <p class="text-center th-block-title">Цена</p>
         <!--<b-table responsive bordered :items="items" :fields="fields" class="th-table text-center"></b-table>-->
-        <table class="table table-responsive text-center th-table">
+        <table class="table text-center th-table">
             <thead>
                 <tr>
                     <th></th>
@@ -238,6 +238,7 @@
         }
     }
     .th-table {
+        table-layout: fixed;
         thead {
             th {
                 border-left: 1px solid #e9ecef;
@@ -287,9 +288,19 @@
         .th-table {
             tbody tr {
                 td {
-                    min-width: 19vw;
+                    min-width: 200px;
+                    &:first-child {
+                        min-width: 250px;
+                    }
                 }
             }
+        }
+        .th-price-title {
+            font-size: 2.6rem;
+            margin: 0;
+        }
+        .th-cmdBuy {
+            min-width: 80%;
         }
     }
 
@@ -297,9 +308,15 @@
         .th-table {
             tbody tr {
                 td {
-                    min-width: 100%;
+                    min-width: 100% !important;
                 }
             }
+        }
+        .th-price-title {
+            font-size: 2rem;
+        }
+        .th-cmdBuy {
+            min-width: 100%;
         }
     }
 
@@ -307,12 +324,49 @@
         .th-table {
             tbody tr {
                 td {
+                    font-size: 0.75rem;
                     min-width: 100%;
                     &:first-child {
                         min-width: 100%;
                     }
                 }
             }
+        }
+        .th-price-title {
+            font-size: 1.6rem;
+        }
+        .th-old-price {
+            font-size: 1rem;
+        }
+        .th-cmdBuy {
+            font-size: 1.2rem;
+            height: 50px;
+        }
+        .th-new-price {
+            font-size: 1.275rem;
+        }
+    }
+    @media only screen and (max-width : 576px) {
+        .th-price-title {
+            font-size: 1.2rem;
+        }
+        .th-cmdBuy {
+            font-size: 1rem;
+            height: 40px;
+        }
+        .th-price-description,
+        .th-old-price {
+            font-size: 0.875rem;
+        }
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+        .th-table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
         }
     }
 </style>
