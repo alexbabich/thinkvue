@@ -404,7 +404,7 @@
 
     }
 
-    @media only screen and (max-width : 768px) {
+    @media only screen and (max-width : 767px) {
         .th-other .th-connection .th-step-label {
             left: 10px;
         }
@@ -417,7 +417,7 @@
         }
     }
 
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .th-step-label {
             font-size: 0.875rem;
             line-height: 1.2;

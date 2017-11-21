@@ -33,7 +33,7 @@
             moreinfo: [
               {
                 subtitle: 'Цена разрабоки:  от 5000$',
-                text: 'Дизайн+разработка 2 приложений под платформу iOS и Android.'
+                text: 'Дизайн + разработка двух приложений под платформу iOS и Android.'
               },
               {
                 subtitle: 'Время разработки: от 4 мес.',
@@ -111,13 +111,13 @@
         }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         .thAdvantegList:before {
             width: 0;
         }
     }
 
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .thAdvantegList {
             padding: 0;
             margin: 15px 0;

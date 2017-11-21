@@ -2,7 +2,7 @@
     <b-container>
         <b-navbar toggleable class="row">
             <base-nav-toggle target="navbar-collapse"></base-nav-toggle>
-            <b-navbar-brand><b-link href="/">Treetopers</b-link></b-navbar-brand>
+            <!--<b-navbar-brand><b-link href="/">Treetopers</b-link></b-navbar-brand>-->
             <b-collapse is-nav id="nav_text_collapse">
                 <b-nav>
                     <b-nav-item :href="item.url" :key="item.id" v-for="item in menuList" v-scroll-to="item.url">
@@ -67,14 +67,10 @@
         position: relative;
         z-index: 3;
         padding: 60px 0;
+        margin: auto;
         li {
             font-weight: normal;
-            margin: 0 15px;
-            &:first-child {
-                a {
-                    font-family: "Open Sans", sans-serif;
-                }
-            }
+            margin: 0 30px;
             a {
                 padding: 5px;
                 color: #fff;
@@ -102,11 +98,6 @@
             padding: 40px 0;
             li {
                 margin: auto 6px;
-                &:first-child {
-                   a {
-                       font-size: 1rem;
-                   }
-                }
                 a {
                     padding: 10px 5px;
                     font-size: 0.875rem;
@@ -130,11 +121,6 @@
         .nav {
             li {
                 margin: auto 6px;
-                &:first-child {
-                    a {
-                         font-size: 0.725rem;
-                    }
-                }
                 a {
                     font-size: 0.725rem;
                 }
@@ -183,7 +169,7 @@
         }
     }
 
-    @media only screen and (max-width : 768px) {
+    @media only screen and (max-width : 767px) {
         .nav {
             li {
                 margin: auto 0.3em;
@@ -191,7 +177,7 @@
         }
     }
 
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 577px) {
         .th-page-title {
             font-size: 2rem;
         }

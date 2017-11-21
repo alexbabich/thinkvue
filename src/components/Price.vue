@@ -70,7 +70,7 @@
       label: 'Платформы IOS и Android',
       stat: [
         {
-          status: 'th-check'
+          status: 'th-uncheck'
         },
         {
           status: 'th-check'
@@ -282,6 +282,13 @@
             width: 27px;
             display: inline-block;
         }
+        .th-uncheck {
+            display: block;
+            width: 16px;
+            height: 3px;
+            background: #333;
+            margin: auto;
+        }
     }
 
     @media only screen and (max-width : 1200px) {
@@ -320,7 +327,7 @@
         }
     }
 
-    @media only screen and (max-width : 768px) {
+    @media only screen and (max-width : 767px) {
         .th-table {
             tbody tr {
                 td {
@@ -346,7 +353,7 @@
             font-size: 1.275rem;
         }
     }
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .th-price-title {
             font-size: 1.2rem;
         }

@@ -73,7 +73,7 @@
         line-height: 1;
         color: #fff;
         font-weight: 300;
-        opacity: 0.7;
+        opacity: 0.75;
         letter-spacing: 0.3px;
     }
 
@@ -146,7 +146,7 @@
         }
     }
 
-    @media only screen and (max-width : 768px) {
+    @media only screen and (max-width : 767px) {
         .th-header {
             height: 960px;
         }
@@ -157,7 +157,7 @@
         }
     }
 
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .th-header {
             height: 920px;
         }

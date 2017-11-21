@@ -84,7 +84,7 @@
         font-weight: 300;
         font-size: 1.25rem;
     }
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .th-fact-item {
             padding: 0;
         }

@@ -20,7 +20,7 @@
         solutionList: [
           {
             img: 'th-rocket',
-            title: 'Ваше соственное приложение',
+            title: 'Ваше собственное приложение',
             text: 'Ваше название, логотип, цвет и т. д., чтобы увеличить доверия к вашему бренду.'
           },
           {
@@ -121,7 +121,7 @@
           {
             img: 'th-path',
             title: 'Интеграция с Poster',
-            text: 'Получите приложение на своем языке. Подключайтесь к своим людям.'
+            text: 'Система автоматизации работы ресторанов и заведений общепита.'
           }
         ]
       }
@@ -225,7 +225,7 @@
         }
     }
 
-    @media only screen and (max-width : 768px) {
+    @media only screen and (max-width : 767px) {
         .th-solution-title {
             min-height: auto;
         }
@@ -234,7 +234,7 @@
         }
     }
 
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .th-solution-item {
             padding: 0;
         }

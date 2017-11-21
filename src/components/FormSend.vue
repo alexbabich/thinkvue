@@ -79,7 +79,7 @@
         }
     }
 
-    @media only screen and (max-width : 576px) {
+    @media only screen and (max-width : 575px) {
         .th-form-wrapper {
             max-width: 100%;
         }
