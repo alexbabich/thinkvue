@@ -7,7 +7,7 @@
                 <p class="th-solution-text">{{solution.text}}</p>
             </li>
         </ul>
-        <button v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></button>
+        <span v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </b-container>
 </template>
 

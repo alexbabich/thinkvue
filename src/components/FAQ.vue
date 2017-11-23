@@ -7,7 +7,7 @@
                 <p class="th-ask-text">{{answer.text}}</p>
             </li>
         </ul>
-        <button v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></button>
+        <span v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </b-container>
 </template>
 
