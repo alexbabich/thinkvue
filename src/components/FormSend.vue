@@ -61,7 +61,7 @@
                 border-radius: 2px;
                 border: 1px solid #bfcacf !important;
                 font-size: 0.75rem;
-                padding: 15px 25px;
+                padding: 10px 25px;
             }
         }
     }

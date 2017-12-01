@@ -20,9 +20,9 @@
     data () {
       return {
         linkList: [
-          { url: 'facebook', className: 'fb' },
-          { url: 'insta', className: 'in' },
-          { url: 'twitter', className: 'tw' }
+          { url: 'https://www.facebook.com/iThinkersTeam/', className: 'fb' },
+          { url: 'https://www.instagram.com/ithinkersteam/', className: 'in' },
+          { url: 'https://twitter.com/iThinkersTeam', className: 'tw' }
         ]
       }
     }
