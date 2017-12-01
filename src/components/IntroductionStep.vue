@@ -75,6 +75,7 @@
       label: 'Отправление в\nPlay Market и App Store'
     }
   ]
+
   export default {
     name: 'IntroductionStep',
     data () {

@@ -14,25 +14,12 @@
 </template>
 
 <script>
-//  import $ from 'jquery'
-
   export default {
     name: 'FormSend',
     props: ['formTitle', 'formClass'],
     data () {
       return {
       }
-    },
-    methods: {
-//      onSubmit (e) {
-//        e.preventDefault()
-//        $.ajax({
-//          url: 'https://formspree.io/ithinkersteam@gmail.com',
-//          method: 'POST',
-//          data: $('.th-send-form').serialize(),
-//          dataType: 'json'
-//        })
-//      }
     }
   }
 </script>

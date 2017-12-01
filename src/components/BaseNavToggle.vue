@@ -6,18 +6,17 @@
             :aria-expanded="toggleState ? 'true' : 'false'"
             @click="onclick"
     >
-        <slot>
-            <div id="nav-icon1">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </slot>
+        <span id="nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
     </button>
 </template>
 
 <script>
   import $ from 'jquery'
+
   export default {
     name: 'NavToggle',
     mounted () {
@@ -42,10 +41,6 @@
       label: {
         type: String,
         default: 'Toggle navigation'
-      },
-      position: {
-        type: String,
-        default: 'right'
       },
       target: {
         required: true

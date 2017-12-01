@@ -7,9 +7,6 @@
             </li>
         </ul>
         <p class="th-phone-number">+38 (093) 745 63 30</p>
-        <!--TODO somthing wrong with src after build-->
-        <!--<img src="../assets/img/icon-logo.png" alt="icon-logo" class="th-logo"/>-->
-
         <span class="mx-auto th-logo"></span>
     </b-container>
 </template>

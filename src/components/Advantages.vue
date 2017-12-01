@@ -25,6 +25,7 @@
 
 <script>
   import VmBackTop from 'vue-multiple-back-top'
+
   export default {
     components: {
       VmBackTop
