@@ -27,6 +27,7 @@
   import IntroductionResult from '@/components/IntroductionResult.vue'
   import IntroductionStep from '@/components/IntroductionStep.vue'
   import FormSend from '@/components/FormSend.vue'
+
   export default {
     name: 'app',
     components: {

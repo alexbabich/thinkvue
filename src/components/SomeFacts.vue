@@ -11,8 +11,7 @@
 </template>
 
 <script>
-  const showTextMore = 'Посмотреть все'
-  const showTextLess = 'Свернуть'
+  import constants from '@/constants'
 
   export default {
     name: 'SomeFacts',
@@ -20,15 +19,17 @@
       toggleButton () {
         this.collapsed = !this.collapsed
         if (this.collapsed) {
-          this.collapsedText = showTextMore
+          this.collapsedText = constants.showTextMore
+          this.$scrollTo(this.blockId, 400, constants.options)
         } else {
-          this.collapsedText = showTextLess
+          this.collapsedText = constants.showTextLess
         }
       }
     },
     data () {
       return {
-        collapsedText: showTextMore,
+        blockId: '#some-fact',
+        collapsedText: constants.showTextMore,
         collapsed: true,
         factList: [
           {

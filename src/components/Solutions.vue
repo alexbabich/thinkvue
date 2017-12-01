@@ -1,5 +1,5 @@
 <template>
-    <b-container class="pt-5 pb-5">
+    <b-container class="pt-5 pb-5" id="solut">
         <p class="th-block-title text-center">Наши решения</p>
         <ul class="list-unstyled row th-solution-list" v-bind:class="{'is-collapsed' : collapsed }">
             <li v-for="solution in solutionList" :key="solution.id" class="col-sm-12 col-md-6 col-lg-4 th-solution-item">
@@ -12,8 +12,7 @@
 </template>
 
 <script>
-  const showTextMore = 'Посмотреть все'
-  const showTextLess = 'Свернуть'
+  import constants from '@/constants'
 
   export default {
     name: 'Solutions',
@@ -21,15 +20,17 @@
       toggleButton () {
         this.collapsed = !this.collapsed
         if (this.collapsed) {
-          this.collapsedText = showTextMore
+          this.collapsedText = constants.showTextMore
+          this.$scrollTo(this.blockId, 400, constants.options)
         } else {
-          this.collapsedText = showTextLess
+          this.collapsedText = constants.showTextLess
         }
       }
     },
     data () {
       return {
-        collapsedText: showTextMore,
+        blockId: '#solut',
+        collapsedText: constants.showTextMore,
         collapsed: true,
         solutionList: [
           {
