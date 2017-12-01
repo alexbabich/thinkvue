@@ -7,15 +7,29 @@
                 <p class="th-ask-text">{{answer.text}}</p>
             </li>
         </ul>
-        <span v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+        <span @click="toggleButton()" class="th-view-more">{{collapsedText}}<i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </b-container>
 </template>
 
 <script>
+  const showTextMore = 'Посмотреть все'
+  const showTextLess = 'Свернуть'
+
   export default {
     name: 'FAQ',
+    methods: {
+      toggleButton () {
+        this.collapsed = !this.collapsed
+        if (this.collapsed) {
+          this.collapsedText = showTextMore
+        } else {
+          this.collapsedText = showTextLess
+        }
+      }
+    },
     data () {
       return {
+        collapsedText: showTextMore,
         collapsed: true,
         questionList: [
           {
@@ -66,7 +80,7 @@
 
 <style lang="scss" scoped>
     .is-collapsed {
-        li:nth-child(n+3) {
+        li:nth-child(n+5) {
             display: none;
         }
     }

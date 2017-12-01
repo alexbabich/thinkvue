@@ -7,21 +7,45 @@
                 <p class="th-solution-text">{{solution.text}}</p>
             </li>
         </ul>
-        <span v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+        <span @click="toggleButton()" class="th-view-more">{{collapsedText}}<i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </b-container>
 </template>
 
 <script>
+  const showTextMore = 'Посмотреть все'
+  const showTextLess = 'Свернуть'
+
   export default {
     name: 'Solutions',
+    methods: {
+      toggleButton () {
+        this.collapsed = !this.collapsed
+        if (this.collapsed) {
+          this.collapsedText = showTextMore
+        } else {
+          this.collapsedText = showTextLess
+        }
+      }
+    },
     data () {
       return {
+        collapsedText: showTextMore,
         collapsed: true,
         solutionList: [
           {
             img: 'th-rocket',
             title: 'Ваше собственное приложение',
             text: 'Ваше название, логотип, цвет и т. д., чтобы увеличить доверия к вашему бренду.'
+          },
+          {
+            img: 'th-payment',
+            title: 'Способы оплаты',
+            text: 'Платежи privat24, liqpay, возможность оплаты банковской картой интегрированы в мобильное приложение.'
+          },
+          {
+            img: 'th-path',
+            title: 'Интеграция с Poster',
+            text: 'Система автоматизации работы ресторанов и заведений общепита.'
           },
           {
             img: 'th-android',
@@ -52,16 +76,6 @@
             img: 'th-category',
             title: 'Категории',
             text: 'Категории и подкатегории отображаются в динамических, а также в настраиваемых макетах.'
-          },
-          {
-            img: 'th-native',
-            title: 'Полностью Native',
-            text: 'Это полностью собственные приложения. Производительность и пользовательский интерфейс лучше, когда вы используете Native приложения.'
-          },
-          {
-            img: 'th-payment',
-            title: 'Способы оплаты',
-            text: 'Платежи privat24, liqpay, возможность оплаты банковской картой интегрированы в мобильное приложение.'
           },
           {
             img: 'th-user',
@@ -107,21 +121,6 @@
             img: 'th-translate',
             title: 'Местные языки',
             text: 'Получите приложение на своем языке. Подключайтесь к своим людям.'
-          },
-          {
-            img: 'th-bolt',
-            title: 'Синхронизация хранилища в реальном времени',
-            text: 'Все категории продуктов и списки синхронизируются с приложением в режиме реального времени.'
-          },
-          {
-            img: 'th-support',
-            title: 'Поддержка',
-            text: 'Мы обеспечиваем поддержку мирового класса, 24 * 7 - через звонки, электронную почту и портал поддержки.'
-          },
-          {
-            img: 'th-path',
-            title: 'Интеграция с Poster',
-            text: 'Система автоматизации работы ресторанов и заведений общепита.'
           }
         ]
       }
@@ -184,9 +183,6 @@
         &.th-category:before {
             background-image: url("../assets/img/icon-category.png");
         }
-        &.th-native:before {
-            background-image: url("../assets/img/icon-native.png");
-        }
         &.th-payment:before {
             background-image: url("../assets/img/icon-payment.png");
         }
@@ -202,9 +198,6 @@
         &.th-mix:before {
             background-image: url("../assets/img/icon-mix.png");
         }
-        &.th-native:before {
-            background-image: url("../assets/img/icon-native.png");
-        }
         &.th-sort:before {
             background-image: url("../assets/img/icon-sort.png");
         }
@@ -219,9 +212,6 @@
         }
         &.th-translate:before {
             background-image: url("../assets/img/icon-translate.png");
-        }
-        &.th-support:before {
-            background-image: url("../assets/img/icon-support.png");
         }
     }
 

@@ -27,16 +27,19 @@
                             <p class="th-price-description">{{foot.text1}}</p>
                             <p class="th-new-price">{{foot.newPrice}}</p>
                             <p class="th-old-price">{{foot.oldPrice}}<span>{{foot.oldPrice2}}</span></p>
-                            <button class="mt-3 btn th-cmdBuy">Заказать</button>
+                            <button class="mt-3 btn th-cmdBuy" @click="item.showModal = true">Заказать</button>
                         </div>
                     </th>
                 </tr>
             </tfoot>
         </table>
+        <modal-window v-if="showModal" @close="showModal = false" />
     </b-container>
 </template>
 
 <script>
+  import ModalWindow from '@/components/ModalWindow.vue'
+
   const tableHeader = [
     {
       style: 'standard',
@@ -188,11 +191,15 @@
 
   export default {
     name: 'Price',
+    components: {
+      ModalWindow
+    },
     data () {
       return {
         tableHeader: tableHeader,
         tableContent: tableContent,
-        tableFooter: tableFooter
+        tableFooter: tableFooter,
+        showModal: false
       }
     }
   }

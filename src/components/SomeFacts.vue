@@ -1,20 +1,34 @@
 <template>
-    <b-container class="pt-5 pb-5" id="application">
+    <b-container class="pt-5 pb-5" id="some-fact">
         <p class="th-block-title text-center">Некоторые факты</p>
         <ul class="list-unstyled row th-fact-list" v-bind:class="{'is-collapsed' : collapsed }">
             <li v-for="fact in factList" :key="fact.id" class="col-12 col-md-6 th-fact-item mb-4">
                 <p class="th-fact-text">{{fact.text}}</p>
             </li>
         </ul>
-        <span v-on:click=" collapsed = !collapsed" class="th-view-more">Посмотреть все<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+        <span @click="toggleButton()" class="th-view-more">{{collapsedText}}<i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </b-container>
 </template>
 
 <script>
+  const showTextMore = 'Посмотреть все'
+  const showTextLess = 'Свернуть'
+
   export default {
     name: 'SomeFacts',
+    methods: {
+      toggleButton () {
+        this.collapsed = !this.collapsed
+        if (this.collapsed) {
+          this.collapsedText = showTextMore
+        } else {
+          this.collapsedText = showTextLess
+        }
+      }
+    },
     data () {
       return {
+        collapsedText: showTextMore,
         collapsed: true,
         factList: [
           {
@@ -76,7 +90,7 @@
 
 <style lang="scss" scoped>
     .is-collapsed {
-        li:nth-child(n+3) {
+        li:nth-child(n+5) {
             display: none;
         }
     }

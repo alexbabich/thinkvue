@@ -7,7 +7,12 @@
                 <ul class="list-unstyled">
                     <li v-for="item in parent.moreinfo" :key="item.id">
                         <p :class="[$style.thAdvantSubtitle]">{{item.subtitle}}</p>
-                        <p :class="[$style.thAdvantText]">{{item.text}}</p>
+                        <p :class="[$style.thAdvantText]" :if="item.text">{{item.text}}</p>
+                        <ul class="list-unstyled" :class="[$style.thSublist]" :if="item.list">
+                            <li v-for="listItem in item.list">
+                                {{listItem.text}}
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -41,7 +46,17 @@
               },
               {
                 subtitle: 'Риски при разработке - высокие',
-                text: 'Cложно найти качественного исполнителя, ваши идеи могут быть реализованы неверно, несоответствие готового приложения вашим ожиданиям.'
+                list: [
+                  {
+                    text: 'Сложно найти качественного исполнителя'
+                  },
+                  {
+                    text: 'Ваши идеи могут быть реализованы неверно'
+                  },
+                  {
+                    text: 'Несоответствие готового приложения вашим ожиданиям'
+                  }
+                ]
               }
             ]
           },
@@ -58,7 +73,17 @@
               },
               {
                 subtitle: 'Риски внедрения - минимальные',
-                text: 'Вы сможете потестировать аналогичные приложения, вы видете сразу каким будет приложение, вы платите сразу за готовый, разработанный продукт.'
+                list: [
+                  {
+                    text: 'Вы сможете протестировать аналогичные приложения'
+                  },
+                  {
+                    text: 'Вы видите сразу каким будет приложение'
+                  },
+                  {
+                    text: 'Вы платите сразу за готовый, разработанный продукт'
+                  }
+                ]
               }
             ]
           }
@@ -108,6 +133,14 @@
         border-radius: 2px;
         &:hover {
             background: rgba(195, 195, 195, 0.4);
+        }
+    }
+
+    .thSublist {
+        padding-left: 20px;
+        li {
+            list-style: circle;
+            margin: 5px 0;
         }
     }
 
