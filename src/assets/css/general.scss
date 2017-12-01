@@ -52,5 +52,18 @@ body {
   transform: rotate(0);
 }
 
+.modal-body {
+  padding: 0;
+}
+
+.modal-header {
+  border: none;
+  padding-bottom: 0;
+}
+
+.close {
+  cursor: pointer;
+}
+
 
 @import 'media';

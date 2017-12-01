@@ -1,21 +1,9 @@
 <template>
-    <div class="modal-mask">
-        <div class="modal-wrapper">
-            <div class="modal-container">
-                <div class="modal-header">
-                    <button class="btn btn-success" @click="$emit('close')">закрыть</button>
-                </div>
-                <div class="modal-body m-0">
-                    <FormSend :formTitle="formSendMessage" :formClass="formSendClass"/>
-                </div>
-                <div class="modal-footer row justify-content-center">
-                    <slot name="footer">
-                        <button class="btn btn-success" @click="$emit('close')">закрыть</button>
-                    </slot>
-                </div>
-            </div>
+    <b-modal id="modal1" centered class="th-modal" :hide-footer="true">
+        <div class="modal-body m-0">
+            <FormSend :formTitle="formSendMessage" :formClass="formSendClass" />
         </div>
-    </div>
+    </b-modal>
 </template>
 
 <script>

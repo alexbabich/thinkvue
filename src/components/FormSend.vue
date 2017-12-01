@@ -30,9 +30,17 @@
         color: #fff;
         max-width: 404px;
         margin-top: 0 !important;
+        &.th-form-price,
         &.th-form-footer {
             border-color: #000;
             color: #000;
+        }
+        &.th-form-price {
+            border: none;
+            padding-top: 0 !important;
+            h2 {
+                margin-top: 0 !important;
+            }
         }
         h2 {
             font-size: 1.49rem;

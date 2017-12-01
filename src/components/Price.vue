@@ -27,13 +27,13 @@
                             <p class="th-price-description">{{foot.text1}}</p>
                             <p class="th-new-price">{{foot.newPrice}}</p>
                             <p class="th-old-price">{{foot.oldPrice}}<span>{{foot.oldPrice2}}</span></p>
-                            <button class="mt-3 btn th-cmdBuy" @click="item.showModal = true">Заказать</button>
+                            <button class="mt-3 btn th-cmdBuy" v-b-modal.modal1>Заказать</button>
                         </div>
                     </th>
                 </tr>
             </tfoot>
         </table>
-        <modal-window v-if="showModal" @close="showModal = false" />
+        <modal-window />
     </b-container>
 </template>
 
@@ -198,8 +198,7 @@
       return {
         tableHeader: tableHeader,
         tableContent: tableContent,
-        tableFooter: tableFooter,
-        showModal: false
+        tableFooter: tableFooter
       }
     }
   }
