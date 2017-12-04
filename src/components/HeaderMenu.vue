@@ -2,7 +2,7 @@
     <b-container>
         <b-navbar toggleable class="row">
             <base-nav-toggle target="navbar-collapse"></base-nav-toggle>
-            <b-navbar-brand><b-link href="/">E-commerce app</b-link></b-navbar-brand>
+            <b-navbar-brand><span>E-commerce app</span></b-navbar-brand>
             <b-collapse is-nav id="nav_text_collapse">
                 <b-nav>
                     <b-nav-item :href="item.url" :key="item.id" v-for="item in menuList" v-scroll-to="item.url">
@@ -50,7 +50,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .navbar-brand a {
+    .navbar-brand span {
         padding: 0 5px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 900;

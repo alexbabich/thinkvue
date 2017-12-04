@@ -7,7 +7,7 @@
             </li>
         </ul>
         <p class="th-phone-number">+38 (093) 745 63 30</p>
-        <span class="mx-auto th-logo"></span>
+        <a href="http://ithinkers.com.ua" class="mx-auto th-logo"></a>
     </b-container>
 </template>
 

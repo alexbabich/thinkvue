@@ -7,8 +7,8 @@
                 <ul class="list-unstyled">
                     <li v-for="item in parent.moreinfo" :key="item.id">
                         <p :class="[$style.thAdvantSubtitle]">{{item.subtitle}}</p>
-                        <p :class="[$style.thAdvantText]" :if="item.text">{{item.text}}</p>
-                        <ul class="list-unstyled" :class="[$style.thSublist]" :if="item.list">
+                        <p :class="[$style.thAdvantText]" v-if="item.subtext">{{item.subtext}}</p>
+                        <ul class="list-unstyled" :class="[$style.thSublist]" v-if="item.list">
                             <li v-for="listItem in item.list">
                                 {{listItem.text}}
                             </li>
@@ -31,6 +31,9 @@
       VmBackTop
     },
     name: 'Advantages',
+    filters: {
+
+    },
     data () {
       return {
         advantegsList: [
@@ -39,11 +42,11 @@
             moreinfo: [
               {
                 subtitle: 'Цена разрабоки:  от 5000$',
-                text: 'Дизайн + разработка двух приложений под платформу iOS и Android.'
+                subtext: 'Дизайн + разработка двух приложений под платформу iOS и Android.'
               },
               {
                 subtitle: 'Время разработки: от 4 мес.',
-                text: 'Разработка дизайна, разработка, тестирование, исправление ошибок, публикация в магазины.'
+                subtext: 'Разработка дизайна, разработка, тестирование, исправление ошибок, публикация в магазины.'
               },
               {
                 subtitle: 'Риски при разработке - высокие',
@@ -66,11 +69,11 @@
             moreinfo: [
               {
                 subtitle: 'Цена разрабоки:  от 99$',
-                text: 'Аренда двух приложений (iOS и Android) в месяц.'
+                subtext: 'Аренда двух приложений (iOS и Android) в месяц.'
               },
               {
                 subtitle: 'Время разработки: от 1 мес.',
-                text: 'Настройка дизайна, добавление товаров, публикация в магазины.'
+                subtext: 'Настройка дизайна, добавление товаров, публикация в магазины.'
               },
               {
                 subtitle: 'Риски внедрения - минимальные',
@@ -124,6 +127,7 @@
     .thAdvantText {
         font-size: 1.1875rem;
         line-height: 1.4;
+        min-height: 52px;
     }
 
     .top {
