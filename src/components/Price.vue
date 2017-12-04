@@ -2,6 +2,7 @@
     <b-container class="pt-5 pb-5" id="price">
         <p class="text-center th-block-title">Цена</p>
         <!--<b-table responsive bordered :items="items" :fields="fields" class="th-table text-center"></b-table>-->
+
         <table class="table text-center th-table">
             <thead>
                 <tr>
@@ -11,15 +12,19 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody v-bind:class="{'is-collapsed' : collapsed }">
                 <tr v-for="item in tableContent" :key="item.id">
-                    <td>{{item.label}}</td>
+                    <td :colspan="[!item.stat ? '4' : '']" :class="[!item.stat ? 'text-left th-single-row' : '']">{{item.label}}</td>
                     <td v-for="status in item.stat" :key="status.id">
                         <span :class="status.status"></span>
                     </td>
                 </tr>
             </tbody>
             <tfoot>
+                <tr>
+                    <th></th>
+                    <th colspan="3"><span @click="toggleButton()" class="th-view-more" :class="[this.collapsed ? 'th-close' : 'th-open']">{{collapsedText}}<i class="fa fa-angle-down" aria-hidden="true"></i></span></th>
+                </tr>
                 <tr>
                     <th></th>
                     <th v-for="foot in tableFooter">
@@ -39,6 +44,7 @@
 
 <script>
   import ModalWindow from '@/components/ModalWindow.vue'
+  import constants from '@/constants'
 
   const tableHeader = [
     {
@@ -56,115 +62,251 @@
   ]
   const tableContent = [
     {
-      label: 'Платформа IOS или Android',
+      label: 'Платформы'
+    },
+    {
+      label: '1 Платформа IOS или Android',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-uncheck'},
+        {status: 'th-uncheck'}
       ]
     },
     {
-      label: 'Платформы IOS и Android',
+      label: '2 Платформы IOS и Android',
       stat: [
-        {
-          status: 'th-uncheck'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-uncheck'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     },
     {
-      label: 'Синхронизация хранилища в реальном времени',
+      label: 'Синхронизация товаров в реальном времени',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     },
     {
       label: 'Неограниченное количество продуктов',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     },
     {
-      label: 'Отслеживание заказов',
+      label: 'Плата за транзакцию - 0,0%',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     },
     {
       label: 'Поиск',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     },
     {
-      label: 'Рекомендуемые товары',
+      label: 'Поддержка нескольких языков',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     },
     {
-      label: 'Индивидуальные категории',
+      label: 'Категории и подкатегории',
       stat: [
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        },
-        {
-          status: 'th-check'
-        }
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Виды оплаты'
+    },
+    {
+      label: 'Liqpay',
+      stat: [
+        {status: 'th-uncheck'},
+        {status: 'th-uncheck'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Приват 24',
+      stat: [
+        {status: 'th-uncheck'},
+        {status: 'th-uncheck'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Apple Pay',
+      stat: [
+        {status: 'th-uncheck'},
+        {status: 'th-uncheck'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Android Pay',
+      stat: [
+        {status: 'th-uncheck'},
+        {status: 'th-uncheck'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Интеграция сообщений и чатов'
+    },
+    {
+      label: 'Неограниченное  колличество cообщений и  Push-уведомлений',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Аналитика'
+    },
+    {
+      label: 'Google Аналитика на основе Firebase',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Интеграция с оциальными сетями'
+    },
+    {
+      label: 'Facebook',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Twitter',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Instagram',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Брендинг'
+    },
+    {
+      label: 'White Labeled App - Ваше имя, логотип, иконка и цветная тема',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Создание логотипа приложения',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Поддержка'
+    },
+    {
+      label: 'Hастройки',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Обновления приложений',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Поддержка приложений',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Поддержка через электронную почту',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Интеграция'
+    },
+    {
+      label: 'Интеграция с автоматическим хранилищем',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Google Аналитика',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Firebase',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Firebase Cloud Message',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
+      ]
+    },
+    {
+      label: 'Branch Deeplinking',
+      stat: [
+        {status: 'th-check'},
+        {status: 'th-check'},
+        {status: 'th-check'}
       ]
     }
   ]
@@ -191,11 +333,25 @@
 
   export default {
     name: 'Price',
+    methods: {
+      toggleButton () {
+        this.collapsed = !this.collapsed
+        if (this.collapsed) {
+          this.collapsedText = constants.showTextMore
+          this.$scrollTo(this.blockId, 400, constants.options)
+        } else {
+          this.collapsedText = constants.showTextLess
+        }
+      }
+    },
     components: {
       ModalWindow
     },
     data () {
       return {
+        blockId: '#price',
+        collapsedText: constants.showTextMore,
+        collapsed: true,
         tableHeader: tableHeader,
         tableContent: tableContent,
         tableFooter: tableFooter
@@ -205,12 +361,18 @@
 </script>
 
 <style lang="scss">
+    .is-collapsed {
+        tr:nth-child(n+13) {
+            display: none;
+        }
+    }
     .th-cmdBuy {
         min-width: 226px;
         height: 70px;
         font-size: 1.875rem;
         color: #fff;
         background: #57b1b3;
+        cursor: pointer;
     }
     .th-price-additional {
         line-height: 1;
@@ -243,6 +405,10 @@
             text-decoration: line-through;
         }
     }
+    .th-single-row {
+        background: #e2e2e2;
+        color: #fff;
+    }
     .th-table {
         table-layout: fixed;
         thead {
@@ -261,7 +427,10 @@
         tbody {
             tr {
                 td {
+                    padding: 16px 10px;
                     border-left: 1px solid #e9ecef;
+                    font-size: 1.4375rem;
+                    line-height: 1.2;
                     min-width: 266px;
                     vertical-align: middle;
                     &:first-child {
@@ -273,7 +442,21 @@
                 }
             }
         }
-
+        tfoot {
+            tr {
+                &:first-child {
+                    th {
+                        border-top: 1px solid #e9ecef;
+                        &:last-child {
+                            border: 1px solid #d0d0d0;
+                        }
+                    }
+                }
+                th {
+                    border: none;
+                }
+            }
+        }
         thead,
         tbody {
             th:nth-child(3),
@@ -281,19 +464,24 @@
                 background-color: #ebf6f6;
             }
         }
+        .th-check,
+        .th-uncheck {
+            height: 27px;
+            width: 27px;
+            display: block;
+            background-size: contain !important;
+            margin: auto;
+        }
         .th-check {
             background: url("../assets/img/icon-check.png") no-repeat;
-            background-size: contain;
-            height: 24px;
-            width: 27px;
-            display: inline-block;
         }
         .th-uncheck {
-            display: block;
-            width: 16px;
-            height: 3px;
-            background: #333;
-            margin: auto;
+            background: url("../assets/img/icon-uncheck.png") no-repeat;
+        }
+        .th-view-more {
+            width: 200px;
+            font-weight: normal;
+            padding: 10px 0;
         }
     }
 

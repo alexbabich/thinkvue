@@ -6,7 +6,7 @@
                 <p class="th-fact-text">{{fact.text}}</p>
             </li>
         </ul>
-        <span @click="toggleButton()" class="th-view-more">{{collapsedText}}<i class="fa fa-angle-down" aria-hidden="true"></i></span>
+        <span @click="toggleButton()" class="th-view-more" :class="[this.collapsed ? 'th-close' : 'th-open']">{{collapsedText}}<i class="fa fa-angle-down" aria-hidden="true"></i></span>
     </b-container>
 </template>
 
