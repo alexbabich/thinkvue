@@ -12,7 +12,7 @@
                         <p class="col-6 col-lg-5 th-app">1 месяц аренды приложения</p>
                     </div>
                 </b-col>
-                <FormSend :formTitle="formSendMessage" />
+                <FormSend :formTitle="formSendMessage" :buttonTitle="submitTitle" />
             </b-row>
         </b-container>
     </div>
@@ -30,7 +30,8 @@
     },
     data () {
       return {
-        formSendMessage: 'Узнай как использовать\nприложение в своем бизнесе'
+        formSendMessage: 'Узнай как использовать\nприложение в своем бизнесе',
+        submitTitle: 'Узнать'
       }
     }
   }

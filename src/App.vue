@@ -10,7 +10,7 @@
     <SomeFacts/>
     <Testimonials/>
     <FAQ/>
-    <FormSend :formTitle="formSendMessage" :formClass="formSendClass"/>
+    <FormSend :formTitle="formSendMessage" :formClass="formSendClass" :buttonTitle="submitTitle" />
     <SocialLinks/>
   </div>
 </template>
@@ -46,7 +46,8 @@
     data () {
       return {
         formSendMessage: 'Оставте свои контакты\nи мы вам презвоним',
-        formSendClass: 'th-form-footer'
+        formSendClass: 'th-form-footer',
+        submitTitle: 'Узнать'
       }
     }
   }

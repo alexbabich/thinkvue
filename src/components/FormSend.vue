@@ -8,7 +8,7 @@
             <b-form-group>
                 <b-form-input class="mx-auto" id="phoneInput" name="phone" type="tel" required placeholder="Телефон"></b-form-input>
             </b-form-group>
-            <b-button type="submit" class="th-cmdSend mt-3 mb-4">Узнать</b-button>
+            <b-button type="submit" class="th-cmdSend mt-3 mb-4">{{buttonTitle}}</b-button>
         </b-form>
     </b-col>
 </template>
@@ -16,7 +16,7 @@
 <script>
   export default {
     name: 'FormSend',
-    props: ['formTitle', 'formClass'],
+    props: ['formTitle', 'formClass', 'buttonTitle'],
     data () {
       return {
       }
