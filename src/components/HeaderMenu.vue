@@ -5,7 +5,7 @@
             <b-navbar-brand><span>E-commerce app</span></b-navbar-brand>
             <b-collapse is-nav id="nav_text_collapse">
                 <b-nav>
-                    <b-nav-item :href="item.url" :key="item.id" v-for="item in menuList" v-scroll-to="item.url">
+                    <b-nav-item :href="item.url" :key="item.id" v-for="item in menuList" v-scroll-to="item.url" :title="item.text">
                         {{item.text}}
                     </b-nav-item>
                 </b-nav>
@@ -90,7 +90,7 @@
 
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .navbar-brand {
-            a {
+            span {
                 font-size: 1.5rem;
             }
         }
@@ -113,7 +113,7 @@
 
         .navbar-brand {
             margin: 0;
-            a {
+            span {
                 font-size: 1.3rem;
             }
         }
@@ -142,7 +142,7 @@
             width: 100%;
             position: absolute;
             top: 0;
-            a {
+            span {
                 display: inline-block;
                 text-align: center;
                 width: 100%;

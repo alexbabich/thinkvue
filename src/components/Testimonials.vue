@@ -3,7 +3,7 @@
         <p class="th-block-title">Отзывы</p>
         <ul class="list-unstyled row th-testimonial-list">
             <li v-for="testimonial in testimonialsList" :key="testimonial.id" class="col-8 col-md-6 m-auto th-testimonial-item">
-                <img v-if="testimonial.img" class="rounded-circle mb-4 th-user-photo" :src="testimonial.img"/>
+                <img v-if="testimonial.img" class="rounded-circle mb-4 th-user-photo" :src="testimonial.img" :alt="testimonial.user"/>
                 <span v-else class="rounded-circle mb-4 th-user-photo th-default-photo"></span>
                 <p class="th-testimonial-title">{{testimonial.user}}</p>
                 <p class="th-testimonial-text">{{testimonial.text}}</p>

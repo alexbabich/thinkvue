@@ -6,11 +6,11 @@
             :aria-expanded="toggleState ? 'true' : 'false'"
             @click="onclick"
     >
-        <span id="nav-icon1">
+        <div id="nav-icon1">
             <span></span>
             <span></span>
             <span></span>
-        </span>
+        </div>
     </button>
 </template>
 
@@ -39,8 +39,7 @@
     },
     props: {
       label: {
-        type: String,
-        default: 'Toggle navigation'
+        type: String
       },
       target: {
         required: true

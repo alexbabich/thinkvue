@@ -3,7 +3,7 @@
         <p class="th-block-subtitle">Присоединятесь к нам в социальных сетях:</p>
         <ul class="list-unstyled list-inline th-social-list">
             <li v-for="link in linkList" :key="link.id">
-                <b-link :href=link.url :class=link.className></b-link>
+                <b-link :href="link.url" :class="link.className" :title="link.title"></b-link>
             </li>
         </ul>
         <p class="th-phone-number">+38 (093) 745 63 30</p>
@@ -17,9 +17,9 @@
     data () {
       return {
         linkList: [
-          { url: 'https://www.facebook.com/iThinkersTeam/', className: 'fb' },
-          { url: 'https://www.instagram.com/ithinkersteam/', className: 'in' },
-          { url: 'https://twitter.com/iThinkersTeam', className: 'tw' }
+          { url: 'https://www.facebook.com/iThinkersTeam/', className: 'fb', title: 'Следите за нашими новостями на Facebook' },
+          { url: 'https://www.instagram.com/ithinkersteam/', className: 'in', title: 'Следите за нами в Instagram' },
+          { url: 'https://twitter.com/iThinkersTeam', className: 'tw', title: 'Читайте нас на Twitter' }
         ]
       }
     }

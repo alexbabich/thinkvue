@@ -3,10 +3,10 @@
         <h2 class="mb-4 mt-2">{{formTitle}}</h2>
         <b-form validated class="th-send-form" action="https://formspree.io/ithinkersteam@gmail.com" method="POST">
             <b-form-group>
-                <b-form-input class="mx-auto" id="nameInput" name="name" type="text" required placeholder="Имя"></b-form-input>
+                <b-form-input class="mx-auto nameInput" name="name" type="text" required placeholder="Имя"></b-form-input>
             </b-form-group>
             <b-form-group>
-                <b-form-input class="mx-auto" id="phoneInput" name="phone" type="tel" required placeholder="Телефон"></b-form-input>
+                <b-form-input class="mx-auto phoneInput" name="phone" type="tel" required placeholder="Телефон"></b-form-input>
             </b-form-group>
             <b-button type="submit" class="th-cmdSend mt-3 mb-4">{{buttonTitle}}</b-button>
         </b-form>
