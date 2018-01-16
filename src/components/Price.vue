@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <th v-for="foot in tableFooter">
+                    <th v-for="foot in tableFooter" :key="foot.id">
                         <div class="mt-3 th-price-additional">
                             <p class="th-price-description">{{foot.text1}}</p>
                             <p class="th-new-price">{{foot.newPrice}}</p>
@@ -43,321 +43,322 @@
 </template>
 
 <script>
-  import ModalWindow from '@/components/ModalWindow.vue'
-  import constants from '@/constants'
+import ModalWindow from '@/components/ModalWindow.vue'
+import constants from '@/constants'
 
-  const tableHeader = [
-    {
-      style: 'standard',
-      label: 'Standard'
-    },
-    {
-      style: 'gold',
-      label: 'Gold'
-    },
-    {
-      style: 'premium',
-      label: 'Premium'
-    }
-  ]
-  const tableContent = [
-    {
-      label: 'Платформы'
-    },
-    {
-      label: '1 Платформа IOS или Android',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-uncheck'},
-        {status: 'th-uncheck'}
-      ]
-    },
-    {
-      label: '2 Платформы IOS и Android',
-      stat: [
-        {status: 'th-uncheck'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Синхронизация товаров в реальном времени',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Неограниченное количество продуктов',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Плата за транзакцию - 0,0%',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Поиск',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Поддержка нескольких языков',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Категории и подкатегории',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Виды оплаты'
-    },
-    {
-      label: 'Liqpay',
-      stat: [
-        {status: 'th-uncheck'},
-        {status: 'th-uncheck'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Приват 24',
-      stat: [
-        {status: 'th-uncheck'},
-        {status: 'th-uncheck'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Apple Pay',
-      stat: [
-        {status: 'th-uncheck'},
-        {status: 'th-uncheck'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Android Pay',
-      stat: [
-        {status: 'th-uncheck'},
-        {status: 'th-uncheck'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Интеграция сообщений и чатов'
-    },
-    {
-      label: 'Неограниченное  колличество cообщений и  Push-уведомлений',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Аналитика'
-    },
-    {
-      label: 'Google Аналитика на основе Firebase',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Интеграция с оциальными сетями'
-    },
-    {
-      label: 'Facebook',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Twitter',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Instagram',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Брендинг'
-    },
-    {
-      label: 'White Labeled App - Ваше имя, логотип, иконка и цветная тема',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Создание логотипа приложения',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Поддержка'
-    },
-    {
-      label: 'Hастройки',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Обновления приложений',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Поддержка приложений',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Поддержка через электронную почту',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Интеграция'
-    },
-    {
-      label: 'Интеграция с автоматическим хранилищем',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Google Аналитика',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Firebase',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Firebase Cloud Message',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    },
-    {
-      label: 'Branch Deeplinking',
-      stat: [
-        {status: 'th-check'},
-        {status: 'th-check'},
-        {status: 'th-check'}
-      ]
-    }
-  ]
-  const tableFooter = [
-    {
-      text1: 'Стоимость сейчас',
-      newPrice: '1150 грн',
-      oldPrice: 'Стоимость :',
-      oldPrice2: ' 1840 грн'
-    },
-    {
-      text1: 'Стоимость сейчас',
-      newPrice: '2150 грн',
-      oldPrice: 'Стоимость :',
-      oldPrice2: ' 3840 грн'
-    },
-    {
-      text1: 'Стоимость сейчас',
-      newPrice: '2550 грн',
-      oldPrice: 'Стоимость :',
-      oldPrice2: ' 4140 грн'
-    }
-  ]
+const tableHeader = [
+  {
+    style: 'standard',
+    label: 'Standard'
+  },
+  {
+    style: 'gold',
+    label: 'Gold'
+  },
+  {
+    style: 'premium',
+    label: 'Premium'
+  }
+]
+const tableContent = [
+  {
+    label: 'Платформы'
+  },
+  {
+    label: '1 Платформа IOS или Android',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-uncheck'},
+      {status: 'th-uncheck'}
+    ]
+  },
+  {
+    label: '2 Платформы IOS и Android',
+    stat: [
+      {status: 'th-uncheck'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Синхронизация товаров в реальном времени',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Неограниченное количество продуктов',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Плата за транзакцию - 0,0%',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Поиск',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Поддержка нескольких языков',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Категории и подкатегории',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Виды оплаты'
+  },
+  {
+    label: 'Liqpay',
+    stat: [
+      {status: 'th-uncheck'},
+      {status: 'th-uncheck'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Приват 24',
+    stat: [
+      {status: 'th-uncheck'},
+      {status: 'th-uncheck'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Apple Pay',
+    stat: [
+      {status: 'th-uncheck'},
+      {status: 'th-uncheck'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Android Pay',
+    stat: [
+      {status: 'th-uncheck'},
+      {status: 'th-uncheck'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Интеграция сообщений и чатов'
+  },
+  {
+    label: 'Неограниченное  колличество cообщений и  Push-уведомлений',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Аналитика'
+  },
+  {
+    label: 'Google Аналитика на основе Firebase',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Интеграция с оциальными сетями'
+  },
+  {
+    label: 'Facebook',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Twitter',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Instagram',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Брендинг'
+  },
+  {
+    label: 'White Labeled App - Ваше имя, логотип, иконка и цветная тема',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Создание логотипа приложения',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Поддержка'
+  },
+  {
+    label: 'Hастройки',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Обновления приложений',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Поддержка приложений',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Поддержка через электронную почту',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Интеграция'
+  },
+  {
+    label: 'Интеграция с автоматическим хранилищем',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Google Аналитика',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Firebase',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Firebase Cloud Message',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  },
+  {
+    label: 'Branch Deeplinking',
+    stat: [
+      {status: 'th-check'},
+      {status: 'th-check'},
+      {status: 'th-check'}
+    ]
+  }
+]
 
-  export default {
-    name: 'Price',
-    methods: {
-      toggleButton () {
-        this.collapsed = !this.collapsed
-        if (this.collapsed) {
-          this.collapsedText = constants.showTextMore
-          this.$scrollTo(this.blockId, 400, constants.options)
-        } else {
-          this.collapsedText = constants.showTextLess
-        }
+const tableFooter = [
+  {
+    text1: 'Стоимость сейчас',
+    newPrice: '1150 грн',
+    oldPrice: 'Стоимость :',
+    oldPrice2: ' 1840 грн'
+  },
+  {
+    text1: 'Стоимость сейчас',
+    newPrice: '2150 грн',
+    oldPrice: 'Стоимость :',
+    oldPrice2: ' 3840 грн'
+  },
+  {
+    text1: 'Стоимость сейчас',
+    newPrice: '2550 грн',
+    oldPrice: 'Стоимость :',
+    oldPrice2: ' 4140 грн'
+  }
+]
+
+export default {
+  name: 'Price',
+  methods: {
+    toggleButton () {
+      this.collapsed = !this.collapsed
+      if (this.collapsed) {
+        this.collapsedText = constants.showTextMore
+        this.$scrollTo(this.blockId, 400, constants.options)
+      } else {
+        this.collapsedText = constants.showTextLess
       }
-    },
-    components: {
-      ModalWindow
-    },
-    data () {
-      return {
-        blockId: '#price',
-        collapsedText: constants.showTextMore,
-        collapsed: true,
-        tableHeader: tableHeader,
-        tableContent: tableContent,
-        tableFooter: tableFooter
-      }
+    }
+  },
+  components: {
+    ModalWindow
+  },
+  data () {
+    return {
+      blockId: '#price',
+      collapsedText: constants.showTextMore,
+      collapsed: true,
+      tableHeader: tableHeader,
+      tableContent: tableContent,
+      tableFooter: tableFooter
     }
   }
+}
 </script>
 
 <style lang="scss">

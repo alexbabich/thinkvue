@@ -13,20 +13,20 @@
 </template>
 
 <script>
-  export default {
-    name: 'Testimonials',
-    data () {
-      return {
-        testimonialsList: [
-          {
-            img: './static/img/user.jpg',
-            user: 'Алексей Чечель, со-основатель суши бара Shifu',
-            text: 'Используя приложение Shifu удалось увеличить прибыль на 25% в течении первого месяца. Ежедневно приложение используют более 100 клиентов. Общий обьем заказов через приложение составляет около 30%.'
-          }
-        ]
-      }
+export default {
+  name: 'Testimonials',
+  data () {
+    return {
+      testimonialsList: [
+        {
+          img: './static/img/user.jpg',
+          user: 'Алексей Чечель, со-основатель суши бара Shifu',
+          text: 'Используя приложение Shifu удалось увеличить прибыль на 25% в течении первого месяца. Ежедневно приложение используют более 100 клиентов. Общий обьем заказов через приложение составляет около 30%.'
+        }
+      ]
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -19,6 +19,8 @@
 </template>
 
 <script>
+/* eslint-disable indent */
+
   const otherStep = [
     {
       img: 'th-idea',

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   import FormSend from './FormSend.vue'
 
   export default {

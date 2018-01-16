@@ -9,7 +9,7 @@
                         <p :class="[$style.thAdvantSubtitle]">{{item.subtitle}}</p>
                         <p :class="[$style.thAdvantText]" v-if="item.subtext">{{item.subtext}}</p>
                         <ul class="list-unstyled" :class="[$style.thSublist]" v-if="item.list">
-                            <li v-for="listItem in item.list">
+                            <li v-for="listItem in item.list" :key="listItem.id">
                                 {{listItem.text}}
                             </li>
                         </ul>
@@ -24,77 +24,76 @@
 </template>
 
 <script>
-  import VmBackTop from 'vue-multiple-back-top'
+import VmBackTop from 'vue-multiple-back-top'
 
-  export default {
-    components: {
-      VmBackTop
-    },
-    name: 'Advantages',
-    filters: {
-
-    },
-    data () {
-      return {
-        advantegsList: [
-          {
-            title: 'Обычно',
-            moreinfo: [
-              {
-                subtitle: 'Цена разрабоки:  от 5000$',
-                subtext: 'Дизайн + разработка двух приложений под платформу iOS и Android.'
-              },
-              {
-                subtitle: 'Время разработки: от 4 мес.',
-                subtext: 'Разработка дизайна, разработка, тестирование, исправление ошибок, публикация в магазины.'
-              },
-              {
-                subtitle: 'Риски при разработке - высокие',
-                list: [
-                  {
-                    text: 'Сложно найти качественного исполнителя'
-                  },
-                  {
-                    text: 'Ваши идеи могут быть реализованы неверно'
-                  },
-                  {
-                    text: 'Несоответствие готового приложения вашим ожиданиям'
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            title: 'Мы предлагаем',
-            moreinfo: [
-              {
-                subtitle: 'Цена разрабоки:  от 99$',
-                subtext: 'Аренда двух приложений (iOS и Android) в месяц.'
-              },
-              {
-                subtitle: 'Время разработки: от 1 мес.',
-                subtext: 'Настройка дизайна, добавление товаров, публикация в магазины.'
-              },
-              {
-                subtitle: 'Риски внедрения - минимальные',
-                list: [
-                  {
-                    text: 'Вы сможете протестировать аналогичные приложения'
-                  },
-                  {
-                    text: 'Вы видите сразу каким будет приложение'
-                  },
-                  {
-                    text: 'Вы платите сразу за готовый, разработанный продукт'
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+export default {
+  components: {
+    VmBackTop
+  },
+  name: 'Advantages',
+  filters: {
+  },
+  data () {
+    return {
+      advantegsList: [
+        {
+          title: 'Обычно',
+          moreinfo: [
+            {
+              subtitle: 'Цена разрабоки:  от 5000$',
+              subtext: 'Дизайн + разработка двух приложений под платформу iOS и Android.'
+            },
+            {
+              subtitle: 'Время разработки: от 4 мес.',
+              subtext: 'Разработка дизайна, разработка, тестирование, исправление ошибок, публикация в магазины.'
+            },
+            {
+              subtitle: 'Риски при разработке - высокие',
+              list: [
+                {
+                  text: 'Сложно найти качественного исполнителя'
+                },
+                {
+                  text: 'Ваши идеи могут быть реализованы неверно'
+                },
+                {
+                  text: 'Несоответствие готового приложения вашим ожиданиям'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: 'Мы предлагаем',
+          moreinfo: [
+            {
+              subtitle: 'Цена разрабоки:  от 99$',
+              subtext: 'Аренда двух приложений (iOS и Android) в месяц.'
+            },
+            {
+              subtitle: 'Время разработки: от 1 мес.',
+              subtext: 'Настройка дизайна, добавление товаров, публикация в магазины.'
+            },
+            {
+              subtitle: 'Риски внедрения - минимальные',
+              list: [
+                {
+                  text: 'Вы сможете протестировать аналогичные приложения'
+                },
+                {
+                  text: 'Вы видите сразу каким будет приложение'
+                },
+                {
+                  text: 'Вы платите сразу за готовый, разработанный продукт'
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   }
+}
 </script>
 
 <style lang="scss" module>

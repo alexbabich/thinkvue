@@ -12,6 +12,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   import constants from '@/constants'
 
   export default {

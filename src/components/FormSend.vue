@@ -14,6 +14,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   export default {
     name: 'FormSend',
     props: ['formTitle', 'formClass', 'buttonTitle'],

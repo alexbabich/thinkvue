@@ -15,6 +15,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   import $ from 'jquery'
 
   export default {

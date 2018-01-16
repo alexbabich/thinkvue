@@ -19,6 +19,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   import HeaderMenu from '@/components/HeaderMenu.vue'
   import FormSend from '@/components/FormSend.vue'
 

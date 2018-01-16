@@ -2,7 +2,7 @@
     <b-container>
         <b-navbar toggleable class="row">
             <base-nav-toggle target="navbar-collapse"></base-nav-toggle>
-            <b-navbar-brand><span>E-commerce app</span></b-navbar-brand>
+            <b-navbar-brand><a href="/demo">E-commerce app</a></b-navbar-brand>
             <b-collapse is-nav id="nav_text_collapse">
                 <b-nav>
                     <b-nav-item :href="item.url" :key="item.id" v-for="item in menuList" v-scroll-to="item.url" :title="item.text">
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   import BaseNavToggle from '@/components/BaseNavToggle.vue'
 
   export default {
@@ -50,7 +51,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .navbar-brand span {
+    .navbar-brand a {
         padding: 0 5px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 900;

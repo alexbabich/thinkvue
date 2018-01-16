@@ -12,6 +12,7 @@
 </template>
 
 <script>
+/* eslint-disable indent */
   export default {
     name: 'SocialLinks',
     data () {
