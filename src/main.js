@@ -7,6 +7,9 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueScrollTo from 'vue-scrollto'
+import VueFire from 'vuefire'
+
+Vue.use(VueFire)
 
 Vue.use(BootstrapVue)
 
