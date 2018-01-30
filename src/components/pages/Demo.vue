@@ -1,30 +1,63 @@
 <template>
-    <div class="th-demoApp">
+    <div class="th-demo-app">
         <b-container>
             <form id="form" @submit.prevent="addApp">
                 <div class="row">
-                    <p class="col-12">Система управления</p>
-                    <ul class="list-unstyled col-12">
+                    <h2 class="col-12">Цветовая палитра</h2>
+                    <div class="th-color-map" :class="newApp.colorScheme.auxiliaryСolor">
+                        <div class="th-single-color th-view-first"></div>
+                        <div class="th-single-color th-view-second"></div>
+                        <div class="th-single-color th-view-third"></div>
+                    </div>
+                    <ul class="list-unstyled col-12 th-color-theme">
                         <li>
-                            <label for="th-systemPoster">Poster</label>
-                            <input type="radio" id="th-systemPoster" value="Poster" v-model="newApp.system.system">
+                            <input type="radio" id="th-1" value="th-1" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <label for="th-1">1</label>
                         </li>
                         <li>
-                            <label for="th-systemShopify">Shopify</label>
-                            <input type="radio" id="th-systemShopify" value="Shopify" v-model="newApp.system.system">
+                            <input type="radio" id="th-2" value="th-2" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <label for="th-2">2</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="th-3" value="th-3" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <label for="th-3">3</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="th-4" value="th-4" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <label for="th-4">4</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="th-5" value="th-5" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <label for="th-5">5</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="th-6" value="th-6" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <label for="th-6">6</label>
                         </li>
                     </ul>
-                    <div class="form-group col-12">
+                    <h2 class="col-12">Система управления</h2>
+                    <ul class="list-unstyled col-12 th-system-list">
+                        <li>
+                            <input type="radio" id="th-systemPoster" value="Poster" v-model="newApp.system.system">
+                            <label for="th-systemPoster"><img src="/static/img/icon-poster.png" /></label>
+                        </li>
+                        <li>
+                            <input type="radio" id="th-systemShopify" value="Shopify" v-model="newApp.system.system">
+                            <label for="th-systemShopify"><img src="/static/img/icon-shopify.png" /></label>
+                        </li>
+                    </ul>
+                    <h2 class="col-12">Информация о заведении</h2>
+                    <div class="form-group col-12" role="group">
                         <label for="th-userDomen">Domen</label>
-                        <input type="text" id="th-userDomen" class="form-control" v-model="newApp.system.domen" />
+                        <input type="text" id="th-userDomen" class="form-control" placeholder="Введите домен" v-model="newApp.system.domen" />
+                        <!--<i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">userDomen</span></i>-->
                     </div>
                     <div class="form-group col-12">
                         <label for="th-userToken">Token</label>
-                        <input type="text" id="th-userToken" class="form-control" v-model="newApp.system.token" />
+                        <input type="text" id="th-userToken" class="form-control" placeholder="Введите токен" v-model="newApp.system.token" />
+                        <!--<i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">userToken</span></i>-->
                     </div>
-                </div>
-                <div class="row">
-                    <p class="col-12">Информация о заведении</p>
+                    <h2 class="col-12">Информация о заведении</h2>
                     <div class="form-group col-12">
                         <label for="th-userPhone">Телефон:</label>
                         <input type="text" id="th-userPhone" class="form-control" v-model="newApp.aboutUs.phone" />
@@ -37,60 +70,40 @@
                         <label for="th-userEmail">Введите e-mail:</label>
                         <input type="text" id="th-userEmail" class="form-control" v-model="newApp.aboutUs.email" />
                     </div>
-                </div>
-                <div class="row">
-                    <p class="col-12">Дополнительные возможности</p>
-                    <ul class="list-unstyled col-12">
+                    <h2 class="col-12">Дополнительные возможности</h2>
+                    <ul class="list-unstyled col-12 th-more-service">
                         <li>
                             <input class="th-checkbox" type="checkbox" id="checkbox1" v-model="newApp.settings.wishList" />
                             <label for="checkbox1">Wish list</label>
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
                             <input class="th-checkbox" type="checkbox" id="checkbox2" v-model="newApp.settings.card" />
                             <label for="checkbox2">Оплата картой</label>
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
                             <input class="th-checkbox" type="checkbox" id="checkbox3" v-model="newApp.settings.oderList" />
                             <label for="checkbox3">Лист заказов</label>
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
                             <input class="th-checkbox" type="checkbox" id="checkbox4" v-model="newApp.settings.search" />
                             <label for="checkbox4">Поиск</label>
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
                             <input class="th-checkbox" type="checkbox" id="checkbox5" v-model="newApp.settings.filter" />
                             <label for="checkbox5">Фильтры</label>
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                     </ul>
                 </div>
-                <button class="btn btn-primary th-cmdBuy" v-b-modal.modal1 type="submit">Заказать</button>
+                <button class="btn btn-primary th-cmd-buy" v-b-modal.modal1 type="submit">Создать</button>
             </form>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>address</th>
-                    <th>email</th>
-                    <th>phone</th>
-                    <th>card</th>
-                    <th>key</th>
-                    <th>Remove</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="(app, key) in appInfo" :key="app.id">
-                    <td>{{app.aboutUs.address}}</td>
-                    <td>{{app.aboutUs.email}}</td>
-                    <td>{{app.aboutUs.phone}}</td>
-                    <td>{{app.settings.card}}</td>
-                    <td>{{app['.key']}}</td>
-                    <td>
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" @click="removeApp(app)">---</span>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <modal-window-demo :formTitle="newKey" />
         </b-container>
-        <modal-window-demo :formTitle="newKey" />
+
     </div>
 </template>
 
@@ -99,21 +112,19 @@ import ModalWindowDemo from '@/components/ModalWindowDemo'
 import {db, appRef} from '@/firebase'
 import moment from 'moment'
 
-let newKey = ''
-
 export default {
   name: 'Demo',
   methods: {
     addApp: function () {
-      newKey = moment().format('X')
-      db.ref(`/StoreInfo/${newKey}`).set({
+      this.newKey = moment().format('X')
+      db.ref(`/StoreInfo/${this.newKey}/Design`).set({
         aboutUs: {
           address: this.newApp.aboutUs.address,
           email: this.newApp.aboutUs.email,
           phone: this.newApp.aboutUs.phone
         },
         colorScheme: {
-          auxiliaryСolor: '',
+          auxiliaryСolor: this.newApp.colorScheme.auxiliaryСolor,
           mainСolor: ''
         },
         settings: {
@@ -139,6 +150,8 @@ export default {
   },
   data () {
     return {
+      formClass: '',
+      newKey: '',
       formSendMessage: moment().format('X'),
       appInfo: {},
       newApp: {
@@ -178,18 +191,497 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-    .th-demoApp {
-        background: #f8f8f8;
+<style lang="scss">
+    @import '../../assets/css/font-awesome.min.css';
+    @import '../../assets/css/fonts.css';
+
+    h2 {
+        margin: 40px auto 20px;
     }
 
-    .th-cmdBuy {
-        min-width: 226px;
-        height: 70px;
-        font-size: 1.875rem;
+    label {
+        color: #7f8fa4;
+    }
+
+    .th-color-map {
+        width: 96%;
+        margin: auto;
+        text-align: center;
+
+        &.th-1 {
+            .th-single-color.th-view-first {
+                &::after {
+                    background: url("/static/img/colormap/1/1.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-second {
+                &::after {
+                    background: url("/static/img/colormap/1/2.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-third {
+                &::after {
+                    background: url("/static/img/colormap/1/3.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        &.th-2 {
+            .th-single-color.th-view-first {
+                &::after {
+                    background: url("/static/img/colormap/2/1.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-second {
+                &::after {
+                    background: url("/static/img/colormap/2/2.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-third {
+                &::after {
+                    background: url("/static/img/colormap/2/3.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        &.th-3 {
+            .th-single-color.th-view-first {
+                &::after {
+                    background: url("/static/img/colormap/3/1.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-second {
+                &::after {
+                    background: url("/static/img/colormap/3/2.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-third {
+                &::after {
+                    background: url("/static/img/colormap/3/3.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        &.th-4 {
+            .th-single-color.th-view-first {
+                &::after {
+                    background: url("/static/img/colormap/4/1.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-second {
+                &::after {
+                    background: url("/static/img/colormap/4/2.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-third {
+                &::after {
+                    background: url("/static/img/colormap/4/3.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        &.th-5 {
+            .th-single-color.th-view-first {
+                &::after {
+                    background: url("/static/img/colormap/5/1.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-second {
+                &::after {
+                    background: url("/static/img/colormap/5/2.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-third {
+                &::after {
+                    background: url("/static/img/colormap/5/3.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        &.th-6 {
+            .th-single-color.th-view-first {
+                &::after {
+                    background: url("/static/img/colormap/6/1.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-second {
+                &::after {
+                    background: url("/static/img/colormap/6/2.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+            .th-single-color.th-view-third {
+                &::after {
+                    background: url("/static/img/colormap/6/3.png") no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+    }
+
+    .th-single-color {
+        position: relative;
+        width: 360px;
+        height: 726px;
+        display: inline-block;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+        }
+        
+        &::before {
+            background: url("/static/img/colormap/mocup.png") no-repeat;
+            background-size: contain;
+            width: 360px;
+            height: 726px;
+            z-index: 2;
+            left: 0;
+        }
+
+        &::after {
+            background: url("/static/img/colormap/1/1.png") no-repeat;
+            background-size: contain;
+            height: 688px;
+            width: 316px;
+            top: 20px;
+            left: 22px;
+            z-index: 1;
+        }
+
+        &.th-view-first {
+            z-index: 5;
+            left: 37px;
+        }
+
+        &.th-view-second {
+            z-index: 4;
+        }
+
+        &.th-view-third {
+            z-index: 3;
+            left: -37px;
+        }
+    }
+
+    .th-demo-app {
+        background: #f8f8f8;
+        padding: 50px 0;
+    }
+
+    .th-cmd-buy {
+        min-width: 236px;
+        height: 45px;
+        font-size: 1.275rem;
         color: #fff;
         background: #57b1b3;
         cursor: pointer;
+    }
+
+    .fa {
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: top;
+        height: 16px;
+        width: 16px;
+        color: #c5d0de;
+        margin-top: 4px;
+        margin-left: 3px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .th-tooltip {
+        display: none;
+        height: 250px;
+        width: 250px;
+        position: absolute;
+        top: -125px;
+        left: 40px;
+        z-index: 3;
+    }
+
+    #th-userDomen + .fa:hover > .th-tooltip,
+    #th-userToken + .fa:hover > .th-tooltip,
+    .th-more-service .fa:hover .th-tooltip {
+        display: block;
+    }
+
+    #checkbox1 ~ .fa > .th-tooltip {
+        background: url("/static/img/colormap/wish-list.png") no-repeat;
+        background-size: contain;
+    }
+
+    #checkbox2 ~ .fa > .th-tooltip {
+        background: url("/static/img/colormap/paycard.png") no-repeat;
+        background-size: contain;
+    }
+
+    #checkbox3 ~ .fa > .th-tooltip {
+        background: url("/static/img/colormap/my-order.png") no-repeat;
+        background-size: contain;
+    }
+
+    #checkbox4 ~ .fa > .th-tooltip {
+        background: url("/static/img/colormap/search.png") no-repeat;
+        background-size: contain;
+    }
+
+    #checkbox5 ~ .fa > .th-tooltip {
+        background: url("/static/img/colormap/filtrs.png") no-repeat;
+        background-size: contain;
+    }
+
+    .th-color-theme {
+        font-size: 0;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            width: 150px;
+            height: 200px;
+            margin: 0 10px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            position: relative;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        [type="radio"]:checked + label::before,
+        [type="radio"]:not(:checked) + label::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 25px;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            box-shadow: 0 0 10px 10px #f2f2f2;
+            background: url("/static/img/icon-radio.png") no-repeat;
+            z-index: 4;
+            background-size: contain;
+        }
+
+        [type="radio"]:checked + label::after,
+        [type="radio"]:not(:checked) + label::after {
+            content: '';
+            width: 145px;
+            height: 145px;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            border: 1px solid #23b066;
+            border-radius: 5px;
+            background: #fff;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        [type="radio"]:not(:checked) + label::after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label::after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    .th-more-service {
+
+        label {
+            padding-left: 30px;
+            position: relative;
+        }
+
+        [type="checkbox"]:checked,
+        [type="checkbox"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="checkbox"]:checked + label::before,
+        [type="checkbox"]:not(:checked) + label::before,
+        [type="checkbox"]:checked + label::after,
+        [type="checkbox"]:not(:checked) + label::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        [type="checkbox"]:checked + label::before,
+        [type="checkbox"]:not(:checked) + label::before {
+            background: url("/static/img/icon-uncheckbox.png") no-repeat;
+            background-size: contain;
+            z-index: 5;
+        }
+
+        [type="checkbox"]:checked + label::after,
+        [type="checkbox"]:not(:checked) + label::after {
+            background: url("/static/img/icon-checkbox.png") no-repeat;
+            z-index: 6;
+        }
+
+        [type="checkbox"]:not(:checked) + label::after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="checkbox"]:checked + label::after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    .th-system-list {
+
+        li {
+            display: inline-block;
+        }
+
+        label {
+            font-size: 0;
+        }
+
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+            position: absolute;
+            left: -9999px;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            position: relative;
+            width: initial;
+            cursor: pointer;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                width: auto;
+                height: auto;
+                top: 0;
+                left: 0;
+                -webkit-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                display: block;
+            }
+        }
+
+        [type="radio"]:not(:checked) + label img {
+            border: 1px solid transparent;
+        }
+
+        [type="radio"]:checked + label img {
+            border: 1px solid #23b066;
+            border-radius: 5px;
+            z-index: 4;
+        }
+
+        [type="radio"]:not(:checked) + label::after {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label::after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .th-color-map {
+            width: 960px;
+        }
+
+        .th-single-color {
+            width: 280px;
+            height: 580px;
+
+            &::before {
+                width: 280px;
+                height: 580px;
+            }
+
+            &::after {
+                height: 550px;
+                width: 238px;
+                top: 22px;
+            }
+        }
+
+        .th-color-theme {
+
+            li {
+                width: 80px;
+                height: 100px;
+            }
+
+            [type="radio"]:checked + label::before,
+            [type="radio"]:not(:checked) + label::before {
+                width: 60px;
+                height: 60px;
+                left: 20px;
+                top: 20px;
+            }
+
+            [type="radio"]:checked + label::after,
+            [type="radio"]:not(:checked) + label::after {
+                width: 95px;
+                height: 95px;
+            }
+        }
     }
 
 </style>

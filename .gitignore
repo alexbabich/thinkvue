@@ -37,3 +37,7 @@ yarn-error.log*
 # Cursive Clojure plugin
 .idea/replstate.xml
 
+
+ithink-new-optimize-img/
+ithink-old-img/
+
