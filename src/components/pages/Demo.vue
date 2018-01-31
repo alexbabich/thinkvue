@@ -1,108 +1,117 @@
 <template>
     <div class="th-demo-app">
         <b-container>
-            <form id="form" @submit.prevent="addApp">
+            <form id="form" @submit.prevent="submitre" >
                 <div class="row">
                     <h2 class="col-12">Цветовая палитра</h2>
-                    <div class="th-color-map" :class="newApp.colorScheme.auxiliaryСolor">
+                    <p class="col-12 required">Выберите одну из цветовых палитр Вашего приложения</p>
+                    <div class="th-color-map" :class="auxiliaryСolor">
                         <div class="th-single-color th-view-first"></div>
                         <div class="th-single-color th-view-second"></div>
                         <div class="th-single-color th-view-third"></div>
                     </div>
                     <ul class="list-unstyled col-12 th-color-theme">
                         <li>
-                            <input type="radio" id="th-1" value="th-1" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <input type="radio" checked id="th-1" value="th-1" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-1">1</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-2" value="th-2" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <input type="radio" id="th-2" value="th-2" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-2">2</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-3" value="th-3" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <input type="radio" id="th-3" value="th-3" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-3">3</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-4" value="th-4" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <input type="radio" id="th-4" value="th-4" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-4">4</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-5" value="th-5" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <input type="radio" id="th-5" value="th-5" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-5">5</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-6" value="th-6" class="th-radio-button" v-model="newApp.colorScheme.auxiliaryСolor">
+                            <input type="radio" id="th-6" value="th-6" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-6">6</label>
                         </li>
                     </ul>
+                    <div v-if='$vuelidation.error("auxiliaryСolor")'>Обязательно выберите одну из цветовых схем</div>
                     <h2 class="col-12">Система управления</h2>
+                    <p class="col-12 required">Выберите одну из систем управления</p>
                     <ul class="list-unstyled col-12 th-system-list">
                         <li>
-                            <input type="radio" id="th-systemPoster" value="Poster" v-model="newApp.system.system">
+                            <input type="radio" id="th-systemPoster" value="Poster" v-model="system">
                             <label for="th-systemPoster"><img src="/static/img/icon-poster.png" /></label>
                         </li>
                         <li>
-                            <input type="radio" id="th-systemShopify" value="Shopify" v-model="newApp.system.system">
+                            <input type="radio" id="th-systemShopify" value="Shopify" v-model="system">
                             <label for="th-systemShopify"><img src="/static/img/icon-shopify.png" /></label>
                         </li>
                     </ul>
-                    <div class="form-group col-12" role="group">
+                    <div v-if='$vuelidation.error("system")'>Обязательно выберите одну из систем</div>
+                    <div class="form-group col-12 col-md-6 required">
                         <label for="th-userDomen">Domen</label>
-                        <input type="text" id="th-userDomen" class="form-control" placeholder="Введите домен" v-model="newApp.system.domen" />
+                        <input type="text" id="th-userDomen" class="form-control" placeholder="Введите домен" v-model="domen" />
+                        <div v-if='$vuelidation.error("domen")'>Обязательно укажите{{ $vuelidation.error('domen') }}</div>
                         <!--<i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">userDomen</span></i>-->
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 col-md-6 required">
                         <label for="th-userToken">Token</label>
-                        <input type="text" id="th-userToken" class="form-control" placeholder="Введите токен" v-model="newApp.system.token" />
+                        <input type="text" id="th-userToken" class="form-control" placeholder="Введите токен" v-model="token" />
+                        <div v-if='$vuelidation.error("token")'>Обязательно укажите{{ $vuelidation.error('token') }}</div>
                         <!--<i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">userToken</span></i>-->
                     </div>
                     <h2 class="col-12">Информация о заведении</h2>
-                    <div class="form-group col-12">
-                        <label for="th-userPhone">Телефон:</label>
-                        <input type="tel" id="th-userPhone" class="form-control" placeholder="Введите телефон" v-model="newApp.aboutUs.phone" />
+                    <div class="form-group col-12 col-md-6 required">
+                        <label for="th-userPhone">Телефон</label>
+                        <input type="tel" id="th-userPhone" class="form-control" placeholder="Введите телефон" v-model="phone" />
+                        <div v-if='$vuelidation.error("phone")'>Обязательно укажите{{ $vuelidation.error('phone') }}</div>
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 col-md-6 required">
                         <label for="th-userAddress">Адресс:</label>
-                        <input type="text" id="th-userAddress" class="form-control" placeholder="Введите адресс" v-model="newApp.aboutUs.address" />
+                        <input required type="text" id="th-userAddress" class="form-control" placeholder="Введите адресс" v-model="address" />
+                        <div v-if='$vuelidation.error("address")'>Обязательно укажите{{ $vuelidation.error('address') }}</div>
                     </div>
-                    <div class="form-group col-12">
-                        <label for="th-userEmail">Введите e-mail:</label>
-                        <input type="email" id="th-userEmail" class="form-control" placeholder="Введите e-mail" v-model="newApp.aboutUs.email" />
+                    <div class="form-group col-12 col-md-6 required">
+                        <label for="th-userEmail">Введите e-mail</label>
+                        <input required type="email" id="th-userEmail" class="form-control" placeholder="Введите e-mail" v-model="email" />
+                        <div v-if='$vuelidation.error("email")'>Обязательно укажите{{ $vuelidation.error('email') }}</div>
                     </div>
                     <h2 class="col-12">Дополнительные возможности</h2>
+                    <p class="col-12">Можете указать дополнительные функции в Вашем приложении</p>
                     <ul class="list-unstyled col-12 th-more-service">
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox1" v-model="newApp.settings.wishList" />
+                            <input class="th-checkbox" type="checkbox" id="checkbox1" v-model="wishList" />
                             <label for="checkbox1">Wish list</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox2" v-model="newApp.settings.card" />
+                            <input class="th-checkbox" type="checkbox" id="checkbox2" v-model="card" />
                             <label for="checkbox2">Оплата картой</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox3" v-model="newApp.settings.oderList" />
+                            <input class="th-checkbox" type="checkbox" id="checkbox3" v-model="oderList" />
                             <label for="checkbox3">Лист заказов</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox4" v-model="newApp.settings.search" />
+                            <input class="th-checkbox" type="checkbox" id="checkbox4" v-model="search" />
                             <label for="checkbox4">Поиск</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox5" v-model="newApp.settings.filter" />
+                            <input class="th-checkbox" type="checkbox" id="checkbox5" v-model="filter" />
                             <label for="checkbox5">Фильтры</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                     </ul>
                 </div>
-                <button class="btn th-cmd-buy" v-b-modal.modal1 type="submit">Создать</button>
+                <button class="btn th-cmd-buy" :disabled="$vuelidation.errors()" v-b-modal.modal1 type="submit">Создать</button>
             </form>
-            <modal-window-demo :formTitle="newKey" />
+            <modal-window-demo :formClass="newKey" />
         </b-container>
-
     </div>
 </template>
 
@@ -110,71 +119,88 @@
 import ModalWindowDemo from '@/components/ModalWindowDemo'
 import {db, appRef} from '@/firebase'
 import moment from 'moment'
+import Vue from 'vue'
+import Vuelidation from 'vuelidation'
+
+Vue.use(Vuelidation)
 
 export default {
   name: 'Demo',
-  methods: {
-    addApp: function () {
-      this.newKey = moment().format('X')
-      db.ref(`/StoreInfo/${this.newKey}/Design`).set({
-        aboutUs: {
-          address: this.newApp.aboutUs.address,
-          email: this.newApp.aboutUs.email,
-          phone: this.newApp.aboutUs.phone
-        },
-        colorScheme: {
-          auxiliaryСolor: this.newApp.colorScheme.auxiliaryСolor,
-          mainСolor: ''
-        },
-        settings: {
-          card: this.newApp.settings.card,
-          filter: this.newApp.settings.filter,
-          oderList: this.newApp.settings.oderList,
-          search: this.newApp.settings.search,
-          wishList: this.newApp.settings.wishList
-        },
-        system: {
-          domen: this.newApp.system.domen,
-          system: this.newApp.system.system,
-          token: this.newApp.system.token
-        }
-      })
-    },
-    removeApp: function (app) {
-      appRef.child(app['.key']).remove()
-    }
-  },
-  components: {
-    ModalWindowDemo
-  },
   data () {
     return {
       formClass: '',
       newKey: '',
       formSendMessage: moment().format('X'),
       appInfo: {},
-      newApp: {
-        aboutUs: {
-          address: '',
-          email: '',
-          phone: ''
-        },
-        colorScheme: {
-          auxiliaryСolor: '',
-          mainСolor: ''
-        },
-        settings: {
-          card: false,
-          filter: false,
-          oderList: false,
-          search: false,
-          wishList: false
-        },
-        system: {
-          domen: '',
-          system: '',
-          token: ''
-        }
+      address: '',
+      email: '',
+      phone: '',
+      auxiliaryСolor: '',
+      mainСolor: '',
+      card: false,
+      filter: false,
+      oderList: false,
+      search: false,
+      wishList: false,
+      domen: '',
+      system: '',
+      token: ''
+    }
+  },
+  components: {
+    ModalWindowDemo
+  },
+  vuelidation: {
+    data: {
+      address: {
+        required: true
+      },
+      email: {
+        required: true
+      },
+      phone: {
+        required: true
+      },
+      domen: {
+        required: true
+      },
+      system: {
+        required: true
+      },
+      token: {
+        required: true
+      }
+    }
+  },
+  methods: {
+    submitre: function () {
+      if (this.$vuelidation.valid()) {
+        this.newKey = moment().format('X')
+        console.log(this.newKey)
+//        alert('Привет, ' + this.newKey + '!')
+        db.ref(`/StoreInfo/${this.newKey}/Design`).set({
+          aboutUs: {
+            address: this.address,
+            email: this.email,
+            phone: this.phone
+          },
+          colorScheme: {
+            auxiliaryСolor: this.auxiliaryСolor,
+            mainСolor: ''
+          },
+          settings: {
+            card: this.card,
+            filter: this.filter,
+            oderList: this.oderList,
+            search: this.search,
+            wishList: this.wishList
+          },
+          system: {
+            domen: this.domen,
+            system: this.system,
+            token: this.token
+          }
+        })
       }
     }
   },
@@ -194,6 +220,18 @@ export default {
     @import '../../assets/css/font-awesome.min.css';
     @import '../../assets/css/fonts.css';
 
+    button:disabled {
+        pointer-events: none;
+    }
+
+    .modal-header {
+        padding: 5px 10px !important;
+    }
+
+    .close {
+        cursor: pointer;
+    }
+
     h2 {
         margin: 40px auto 20px;
     }
@@ -205,6 +243,27 @@ export default {
     input {
         max-width: 280px;
     }
+
+    .required {
+        position: relative;
+
+        label::after {
+            content: '*';
+            display: inline-block;
+            color: red;
+        }
+    }
+
+    p.required {
+
+        &::after {
+            content: '*';
+            display: inline-block;
+            color: red;
+        }
+    }
+
+
 
     .th-color-map {
         width: 96%;
@@ -360,8 +419,7 @@ export default {
         }
 
         &::after {
-            background: url("/static/img/colormap/1/1.png") no-repeat;
-            background-size: contain;
+            background-size: contain !important;
             height: 688px;
             width: 316px;
             top: 20px;
@@ -372,15 +430,27 @@ export default {
         &.th-view-first {
             z-index: 5;
             left: 37px;
+
+            &::after {
+                background: url("/static/img/colormap/1/1.png") no-repeat;
+            }
         }
 
         &.th-view-second {
             z-index: 4;
+
+            &::after {
+                background: url("/static/img/colormap/1/2.png") no-repeat;
+            }
         }
 
         &.th-view-third {
             z-index: 3;
             left: -37px;
+
+            &::after {
+                background: url("/static/img/colormap/1/3.png") no-repeat;
+            }
         }
     }
 
