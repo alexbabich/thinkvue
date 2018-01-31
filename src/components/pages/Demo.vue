@@ -46,7 +46,6 @@
                             <label for="th-systemShopify"><img src="/static/img/icon-shopify.png" /></label>
                         </li>
                     </ul>
-                    <h2 class="col-12">Информация о заведении</h2>
                     <div class="form-group col-12" role="group">
                         <label for="th-userDomen">Domen</label>
                         <input type="text" id="th-userDomen" class="form-control" placeholder="Введите домен" v-model="newApp.system.domen" />
@@ -60,15 +59,15 @@
                     <h2 class="col-12">Информация о заведении</h2>
                     <div class="form-group col-12">
                         <label for="th-userPhone">Телефон:</label>
-                        <input type="text" id="th-userPhone" class="form-control" v-model="newApp.aboutUs.phone" />
+                        <input type="tel" id="th-userPhone" class="form-control" placeholder="Введите телефон" v-model="newApp.aboutUs.phone" />
                     </div>
                     <div class="form-group col-12">
                         <label for="th-userAddress">Адресс:</label>
-                        <input type="text" id="th-userAddress" class="form-control" v-model="newApp.aboutUs.address" />
+                        <input type="text" id="th-userAddress" class="form-control" placeholder="Введите адресс" v-model="newApp.aboutUs.address" />
                     </div>
                     <div class="form-group col-12">
                         <label for="th-userEmail">Введите e-mail:</label>
-                        <input type="text" id="th-userEmail" class="form-control" v-model="newApp.aboutUs.email" />
+                        <input type="email" id="th-userEmail" class="form-control" placeholder="Введите e-mail" v-model="newApp.aboutUs.email" />
                     </div>
                     <h2 class="col-12">Дополнительные возможности</h2>
                     <ul class="list-unstyled col-12 th-more-service">
@@ -99,7 +98,7 @@
                         </li>
                     </ul>
                 </div>
-                <button class="btn btn-primary th-cmd-buy" v-b-modal.modal1 type="submit">Создать</button>
+                <button class="btn th-cmd-buy" v-b-modal.modal1 type="submit">Создать</button>
             </form>
             <modal-window-demo :formTitle="newKey" />
         </b-container>
@@ -201,6 +200,10 @@ export default {
 
     label {
         color: #7f8fa4;
+    }
+
+    input {
+        max-width: 280px;
     }
 
     .th-color-map {
@@ -599,6 +602,9 @@ export default {
             position: relative;
             width: initial;
             cursor: pointer;
+            box-shadow: 0 5px 10px 4px #f2f2f2;
+            border-radius: 10px;
+            margin-right: 20px;
         }
 
         [type="radio"]:checked + label,
@@ -680,6 +686,95 @@ export default {
             [type="radio"]:not(:checked) + label::after {
                 width: 95px;
                 height: 95px;
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        .th-color-theme {
+
+            li {
+                width: 60px;
+                height: 90px;
+            }
+
+            [type="radio"]:checked + label::before,
+            [type="radio"]:not(:checked) + label::before {
+                width: 50px;
+                height: 50px;
+                left: 15px;
+                top: 15px;
+            }
+
+            [type="radio"]:checked + label::after,
+            [type="radio"]:not(:checked) + label::after {
+                width: 85px;
+                height: 85px;
+            }
+        }
+        .th-color-map {
+            width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .th-single-color {
+            width: 165px;
+            height: 320px;
+
+            &::before {
+                width: 165px;
+                height: 330px;
+            }
+
+            &::after {
+                height: 330px;
+                width: 144px;
+                top: 10px;
+                left: 10px;
+            }
+
+            &.th-view-first {
+                left: 20px;
+            }
+
+            &.th-view-third {
+                left: -20px;
+            }
+        }
+
+        .th-system-list [type="radio"]:checked + label,
+        .th-system-list [type="radio"]:not(:checked) + label {
+            width: 60%;
+        }
+
+        .th-system-list [type="radio"]:checked + label img,
+        .th-system-list [type="radio"]:not(:checked) + label img{
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .th-color-theme {
+
+            li {
+                width: 45px;
+                height: 70px;
+            }
+
+            [type="radio"]:checked + label::before,
+            [type="radio"]:not(:checked) + label::before {
+                width: 40px;
+                height: 40px;
+                left: 10px;
+                top: 10px;
+            }
+
+            [type="radio"]:checked + label::after,
+            [type="radio"]:not(:checked) + label::after {
+                width: 60px;
+                height: 60px;
+                top: 0;
+                left: 0;
             }
         }
     }
