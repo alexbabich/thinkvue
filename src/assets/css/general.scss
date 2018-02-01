@@ -65,5 +65,28 @@ body {
   cursor: pointer;
 }
 
+.th-main-view,
+.th-demo-view {
+  position: fixed;
+  display: block;
+  top: 5%;
+  right: 40px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.th-demo-view {
+  right: calc(100% - 250px);
+  width: 200px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 5px #d0d0d0;
+  text-align: center;
+
+  &:hover {
+    background: #e4e4e4;
+    color: #721c24;
+  }
+}
 
 @import 'media';

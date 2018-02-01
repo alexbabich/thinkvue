@@ -27,6 +27,10 @@
     name: 'HeaderMenu',
     data () {
       return {
+        demopage: {
+          text: 'Demo',
+          url: '#'
+        },
         menuList: [
           {
             text: 'ПРЕИМУЩЕСТВА',
@@ -71,7 +75,7 @@
         margin: auto;
         li {
             font-weight: normal;
-            margin: 0 30px;
+            margin: 0 20px;
             a {
                 padding: 5px;
                 color: #fff;

@@ -42,11 +42,11 @@
                     <ul class="list-unstyled col-12 th-system-list">
                         <li>
                             <input type="radio" id="th-systemPoster" value="Poster" v-model="system">
-                            <label for="th-systemPoster"><img src="/static/img/icon-poster.png" /></label>
+                            <label for="th-systemPoster"><img src="../../assets/img/icon-poster.png" /></label>
                         </li>
                         <li>
                             <input type="radio" id="th-systemShopify" value="Shopify" v-model="system">
-                            <label for="th-systemShopify"><img src="/static/img/icon-shopify.png" /></label>
+                            <label for="th-systemShopify"><img src="../../assets/img/icon-shopify.png" /></label>
                         </li>
                     </ul>
                     <div v-if='$vuelidation.error("system")'>Обязательно выберите одну из систем</div>
@@ -273,19 +273,19 @@ export default {
         &.th-1 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("/static/img/colormap/1/1.png") no-repeat;
+                    background: url("../../assets/img/colormap/1/1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("/static/img/colormap/1/2.png") no-repeat;
+                    background: url("../../assets/img/colormap/1/2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("/static/img/colormap/1/3.png") no-repeat;
+                    background: url("../../assets/img/colormap/1/3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -294,19 +294,19 @@ export default {
         &.th-2 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("/static/img/colormap/2/1.png") no-repeat;
+                    background: url("../../assets/img/colormap/2/1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("/static/img/colormap/2/2.png") no-repeat;
+                    background: url("../../assets/img/colormap/2/2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("/static/img/colormap/2/3.png") no-repeat;
+                    background: url("../../assets/img/colormap/2/3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -315,19 +315,19 @@ export default {
         &.th-3 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("/static/img/colormap/3/1.png") no-repeat;
+                    background: url("../../assets/img/colormap/3/1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("/static/img/colormap/3/2.png") no-repeat;
+                    background: url("../../assets/img/colormap/3/2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("/static/img/colormap/3/3.png") no-repeat;
+                    background: url("../../assets/img/colormap/3/3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -336,19 +336,19 @@ export default {
         &.th-4 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("/static/img/colormap/4/1.png") no-repeat;
+                    background: url("../../assets/img/colormap/4/1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("/static/img/colormap/4/2.png") no-repeat;
+                    background: url("../../assets/img/colormap/4/2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("/static/img/colormap/4/3.png") no-repeat;
+                    background: url("../../assets/img/colormap/4/3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -357,19 +357,19 @@ export default {
         &.th-5 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("/static/img/colormap/5/1.png") no-repeat;
+                    background: url("../../assets/img/colormap/5/1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("/static/img/colormap/5/2.png") no-repeat;
+                    background: url("../../assets/img/colormap/5/2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("/static/img/colormap/5/3.png") no-repeat;
+                    background: url("../../assets/img/colormap/5/3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -378,19 +378,19 @@ export default {
         &.th-6 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("/static/img/colormap/6/1.png") no-repeat;
+                    background: url("../../assets/img/colormap/6/1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("/static/img/colormap/6/2.png") no-repeat;
+                    background: url("../../assets/img/colormap/6/2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("/static/img/colormap/6/3.png") no-repeat;
+                    background: url("../../assets/img/colormap/6/3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -410,7 +410,7 @@ export default {
         }
         
         &::before {
-            background: url("/static/img/colormap/mocup.png") no-repeat;
+            background: url("../../assets/img/colormap/mocup.png") no-repeat;
             background-size: contain;
             width: 360px;
             height: 726px;
@@ -432,7 +432,7 @@ export default {
             left: 37px;
 
             &::after {
-                background: url("/static/img/colormap/1/1.png") no-repeat;
+                background: url("../../assets/img/colormap/1/1.png") no-repeat;
             }
         }
 
@@ -440,7 +440,7 @@ export default {
             z-index: 4;
 
             &::after {
-                background: url("/static/img/colormap/1/2.png") no-repeat;
+                background: url("../../assets/img/colormap/1/2.png") no-repeat;
             }
         }
 
@@ -449,7 +449,7 @@ export default {
             left: -37px;
 
             &::after {
-                background: url("/static/img/colormap/1/3.png") no-repeat;
+                background: url("../../assets/img/colormap/1/3.png") no-repeat;
             }
         }
     }
@@ -498,27 +498,27 @@ export default {
     }
 
     #checkbox1 ~ .fa > .th-tooltip {
-        background: url("/static/img/colormap/wish-list.png") no-repeat;
+        background: url("../../assets/img/colormap/wish-list.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox2 ~ .fa > .th-tooltip {
-        background: url("/static/img/colormap/paycard.png") no-repeat;
+        background: url("../../assets/img/colormap/paycard.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox3 ~ .fa > .th-tooltip {
-        background: url("/static/img/colormap/my-order.png") no-repeat;
+        background: url("../../assets/img/colormap/my-order.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox4 ~ .fa > .th-tooltip {
-        background: url("/static/img/colormap/search.png") no-repeat;
+        background: url("../../assets/img/colormap/search.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox5 ~ .fa > .th-tooltip {
-        background: url("/static/img/colormap/filtrs.png") no-repeat;
+        background: url("../../assets/img/colormap/filtrs.png") no-repeat;
         background-size: contain;
     }
 
@@ -564,7 +564,7 @@ export default {
             height: 100px;
             border-radius: 100%;
             box-shadow: 0 0 10px 10px #f2f2f2;
-            background: url("/static/img/icon-radio.png") no-repeat;
+            background: url("../../assets/img/icon-radio.png") no-repeat;
             z-index: 4;
             background-size: contain;
         }
@@ -627,14 +627,14 @@ export default {
 
         [type="checkbox"]:checked + label::before,
         [type="checkbox"]:not(:checked) + label::before {
-            background: url("/static/img/icon-uncheckbox.png") no-repeat;
+            background: url("../../assets/img/icon-uncheckbox.png") no-repeat;
             background-size: contain;
             z-index: 5;
         }
 
         [type="checkbox"]:checked + label::after,
         [type="checkbox"]:not(:checked) + label::after {
-            background: url("/static/img/icon-checkbox.png") no-repeat;
+            background: url("../../assets/img/icon-checkbox.png") no-repeat;
             z-index: 6;
         }
 
@@ -778,8 +778,10 @@ export default {
 
             [type="radio"]:checked + label::after,
             [type="radio"]:not(:checked) + label::after {
-                width: 85px;
-                height: 85px;
+                width: 80px;
+                height: 80px;
+                top: 2px;
+                left: 2px;
             }
         }
         .th-color-map {
@@ -846,6 +848,49 @@ export default {
                 top: 0;
                 left: 0;
             }
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .th-color-theme [type="radio"]:checked + label,
+        .th-color-theme [type="radio"]:not(:checked) + label {
+            width: 40px;
+        }
+
+        .th-color-map {
+            width: 100%;
+        }
+
+        .th-single-color.th-view-first {
+            left: 0;
+        }
+
+        .th-single-color.th-view-third {
+            top: 15px;
+            left: 0;
+        }
+
+        .th-color-theme [type="radio"]:checked + label::before,
+        .th-color-theme [type="radio"]:not(:checked) + label::before {
+            width: 30px;
+            height: 30px;
+            left: 10px;
+            top: 10px;
+        }
+
+        .th-color-theme [type="radio"]:checked + label::after,
+        .th-color-theme [type="radio"]:not(:checked) + label::after {
+           width: 53px;
+           height: 53px;
+           top: 0;
+           left: 0;
+       }
+
+        .th-color-theme li {
+            margin: 0 5px;
+            width: 40px;
+            height: 50px;
         }
     }
 
