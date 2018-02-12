@@ -1,10 +1,12 @@
 <template>
     <div class="th-demo-app">
         <b-container>
-            <form id="form" @submit.prevent="submitre" >
+            <h2>Звездочкой отмечены обязательные поля для заполнения</h2>
+            <form id="form" @submit.prevent="submitre">
                 <div class="row">
                     <h2 class="col-12">Цветовая палитра</h2>
-                    <p class="col-12 required">Выберите одну из цветовых палитр Вашего приложения</p>
+                    <p class="col-12 required" :class="{ 'error': errors.has('radio_group_1') }">Выберите одну из цветовых палитр Вашего приложения</p>
+                    <span class="col-12 is-danger" v-show="errors.has('radio_group_1')">Обязательно укажите одну из предложенных цветовых палитр</span>
                     <div class="th-color-map" :class="auxiliaryСolor">
                         <div class="th-single-color th-view-first"></div>
                         <div class="th-single-color th-view-second"></div>
@@ -12,71 +14,79 @@
                     </div>
                     <ul class="list-unstyled col-12 th-color-theme">
                         <li>
-                            <input type="radio" checked id="th-1" value="th-1" class="th-radio-button" v-model="auxiliaryСolor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-1" value="th-1" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-1">1</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-2" value="th-2" class="th-radio-button" v-model="auxiliaryСolor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-2" value="th-2" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-2">2</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-3" value="th-3" class="th-radio-button" v-model="auxiliaryСolor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-3" value="th-3" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-3">3</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-4" value="th-4" class="th-radio-button" v-model="auxiliaryСolor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-4" value="th-4" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-4">4</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-5" value="th-5" class="th-radio-button" v-model="auxiliaryСolor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-5" value="th-5" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-5">5</label>
                         </li>
                         <li>
-                            <input type="radio" id="th-6" value="th-6" class="th-radio-button" v-model="auxiliaryСolor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-6" value="th-6" class="th-radio-button" v-model="auxiliaryСolor">
                             <label for="th-6">6</label>
                         </li>
                     </ul>
-                    <div v-if='$vuelidation.error("auxiliaryСolor")'>Обязательно выберите одну из цветовых схем</div>
                     <h2 class="col-12">Система управления</h2>
-                    <p class="col-12 required">Выберите одну из систем управления</p>
+                    <p class="col-12">Выберите одну из систем управления</p>
                     <ul class="list-unstyled col-12 th-system-list">
                         <li>
-                            <input type="radio" id="th-systemPoster" value="Poster" v-model="system">
-                            <label for="th-systemPoster"><img src="../../assets/img/icon-poster.png" /></label>
+                            <input type="radio" id="th-systemPoster" value="Poster" v-model="system" checked>
+                            <label for="th-systemPoster"><img src="../../assets/img/icon-shopify2.png" /></label>
                         </li>
                         <li>
-                            <input type="radio" id="th-systemShopify" value="Shopify" v-model="system">
+                            <input type="radio" id="th-systemShopify" value="Shopify" v-model="system" disabled>
                             <label for="th-systemShopify"><img src="../../assets/img/icon-shopify.png" /></label>
                         </li>
                     </ul>
-                    <div v-if='$vuelidation.error("system")'>Обязательно выберите одну из систем</div>
                     <div class="form-group col-12 col-md-6 required">
                         <label for="th-userDomen">Domen</label>
-                        <input type="text" id="th-userDomen" class="form-control" placeholder="Введите домен" v-model="domen" />
-                        <div v-if='$vuelidation.error("domen")'>Обязательно укажите{{ $vuelidation.error('domen') }}</div>
-                        <!--<i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">userDomen</span></i>-->
+                        <p :class="{ 'control': true }">
+                            <input id="th-userDomen" class="form-control" v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('domen') }" name="domen" type="text" placeholder="Введите домен" v-model="domen" />
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">Domen - первое слово в ссылке на админ панель Joinposter (например, доменом для ссылки https://shifu.joinposter.com/api/auth/login является - shifu)</span></i>
+                            <span v-show="errors.has('domen')" class="is-danger">Укажите Ваш домен</span>
+                        </p>
                     </div>
                     <div class="form-group col-12 col-md-6 required">
                         <label for="th-userToken">Token</label>
-                        <input type="text" id="th-userToken" class="form-control" placeholder="Введите токен" v-model="token" />
-                        <div v-if='$vuelidation.error("token")'>Обязательно укажите{{ $vuelidation.error('token') }}</div>
-                        <!--<i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">userToken</span></i>-->
+                        <p :class="{ 'control': true }">
+                            <input id="th-userToken" class="form-control" v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('token') }" name="token" type="text" placeholder="Введите адрес" v-model="token" />
+                            <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">Token - чтобы узнать его, свяжитесь с поддержкой Joinposter</span></i>
+                            <span v-show="errors.has('token ')" class="is-danger">Укажите токен</span>
+                        </p>
                     </div>
                     <h2 class="col-12">Информация о заведении</h2>
                     <div class="form-group col-12 col-md-6 required">
                         <label for="th-userPhone">Телефон</label>
-                        <input type="tel" id="th-userPhone" class="form-control" placeholder="Введите телефон" v-model="phone" />
-                        <div v-if='$vuelidation.error("phone")'>Обязательно укажите{{ $vuelidation.error('phone') }}</div>
+                        <p :class="{ 'control': true }">
+                            <input id="th-userPhone" class="form-control" v-validate="'required|numeric|min:10'" :class="{'input': true, 'is-danger': errors.has('phone') }" name="phone" type="text" placeholder="Например 0961111111" v-model="phone" />
+                            <span v-show="errors.has('phone')" class="is-danger">Укажите Ваш номер телефона</span>
+                        </p>
                     </div>
                     <div class="form-group col-12 col-md-6 required">
                         <label for="th-userAddress">Адресс:</label>
-                        <input required type="text" id="th-userAddress" class="form-control" placeholder="Введите адресс" v-model="address" />
-                        <div v-if='$vuelidation.error("address")'>Обязательно укажите{{ $vuelidation.error('address') }}</div>
+                        <p :class="{ 'control': true }">
+                            <input id="th-userAddress" class="form-control" v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('address') }" name="address" type="text" placeholder="Введите адрес" v-model="address" />
+                            <span v-show="errors.has('address')" class="is-danger">Укажите Ваш адрес</span>
+                        </p>
                     </div>
                     <div class="form-group col-12 col-md-6 required">
                         <label for="th-userEmail">Введите e-mail</label>
-                        <input required type="email" id="th-userEmail" class="form-control" placeholder="Введите e-mail" v-model="email" />
-                        <div v-if='$vuelidation.error("email")'>Обязательно укажите{{ $vuelidation.error('email') }}</div>
+                        <p :class="{ 'control': true }">
+                            <input id="th-userEmail" class="form-control" v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }" name="email" type="text" placeholder="Введите e-mail" v-model="email" />
+                            <span v-show="errors.has('email')" class="is-danger">Укажите Ваш email</span>
+                        </p>
                     </div>
                     <h2 class="col-12">Дополнительные возможности</h2>
                     <p class="col-12">Можете указать дополнительные функции в Вашем приложении</p>
@@ -108,7 +118,7 @@
                         </li>
                     </ul>
                 </div>
-                <button class="btn th-cmd-buy" :disabled="$vuelidation.errors()" v-b-modal.modal1 type="submit">Создать</button>
+                <button class="btn th-cmd-buy" v-b-modal.modal1 type="submit">Создать</button>
             </form>
             <modal-window-demo :formClass="newKey" />
         </b-container>
@@ -120,9 +130,9 @@ import ModalWindowDemo from '@/components/ModalWindowDemo'
 import {db, appRef} from '@/firebase'
 import moment from 'moment'
 import Vue from 'vue'
-import Vuelidation from 'vuelidation'
+import VeeValidate from 'vee-validate'
 
-Vue.use(Vuelidation)
+Vue.use(VeeValidate)
 
 export default {
   name: 'Demo',
@@ -173,35 +183,46 @@ export default {
     }
   },
   methods: {
+//    phoneValidator: function () {
+//      let phoneno = /^((\+380)+([0-9]){9})$/
+//      if (this.phone.match(phoneno)) {
+//        console.log('true')
+//      } else {
+//        console.log('false')
+//      }
+//    },
     submitre: function () {
-      if (this.$vuelidation.valid()) {
-        this.newKey = moment().format('X')
-        console.log(this.newKey)
-//        alert('Привет, ' + this.newKey + '!')
-        db.ref(`/StoreInfo/${this.newKey}/Design`).set({
-          aboutUs: {
-            address: this.address,
-            email: this.email,
-            phone: this.phone
-          },
-          colorScheme: {
-            auxiliaryСolor: this.auxiliaryСolor,
-            mainСolor: ''
-          },
-          settings: {
-            card: this.card,
-            filter: this.filter,
-            oderList: this.oderList,
-            search: this.search,
-            wishList: this.wishList
-          },
-          system: {
-            domen: this.domen,
-            system: this.system,
-            token: this.token
-          }
-        })
-      }
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          // eslint-disable-next-line
+
+          this.newKey = moment().format('X')
+          console.log(this.newKey)
+          db.ref(`/StoreInfo/${this.newKey}/Design`).set({
+            aboutUs: {
+              address: this.address,
+              email: this.email,
+              phone: this.phone
+            },
+            colorScheme: {
+              auxiliaryСolor: this.auxiliaryСolor,
+              mainСolor: ''
+            },
+            settings: {
+              card: this.card,
+              filter: this.filter,
+              oderList: this.oderList,
+              search: this.search,
+              wishList: this.wishList
+            },
+            system: {
+              domen: this.domen,
+              system: this.system,
+              token: this.token
+            }
+          })
+        }
+      })
     }
   },
   firebase: {
@@ -263,7 +284,11 @@ export default {
         }
     }
 
-
+    .is-danger {
+        color: red;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
     .th-color-map {
         width: 96%;
@@ -273,19 +298,19 @@ export default {
         &.th-1 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("../../assets/img/colormap/1/1.png") no-repeat;
+                    background: url("../../assets/img/1_1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("../../assets/img/colormap/1/2.png") no-repeat;
+                    background: url("../../assets/img/1_2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("../../assets/img/colormap/1/3.png") no-repeat;
+                    background: url("../../assets/img/1_3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -294,19 +319,19 @@ export default {
         &.th-2 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("../../assets/img/colormap/2/1.png") no-repeat;
+                    background: url("../../assets/img/2_1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("../../assets/img/colormap/2/2.png") no-repeat;
+                    background: url("../../assets/img/2_2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("../../assets/img/colormap/2/3.png") no-repeat;
+                    background: url("../../assets/img/2_3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -315,19 +340,19 @@ export default {
         &.th-3 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("../../assets/img/colormap/3/1.png") no-repeat;
+                    background: url("../../assets/img/3_1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("../../assets/img/colormap/3/2.png") no-repeat;
+                    background: url("../../assets/img/3_2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("../../assets/img/colormap/3/3.png") no-repeat;
+                    background: url("../../assets/img/3_3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -336,19 +361,19 @@ export default {
         &.th-4 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("../../assets/img/colormap/4/1.png") no-repeat;
+                    background: url("../../assets/img/4_1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("../../assets/img/colormap/4/2.png") no-repeat;
+                    background: url("../../assets/img/4_2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("../../assets/img/colormap/4/3.png") no-repeat;
+                    background: url("../../assets/img/4_3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -357,19 +382,19 @@ export default {
         &.th-5 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("../../assets/img/colormap/5/1.png") no-repeat;
+                    background: url("../../assets/img/5_1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("../../assets/img/colormap/5/2.png") no-repeat;
+                    background: url("../../assets/img/5_2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("../../assets/img/colormap/5/3.png") no-repeat;
+                    background: url("../../assets/img/5_3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -378,19 +403,19 @@ export default {
         &.th-6 {
             .th-single-color.th-view-first {
                 &::after {
-                    background: url("../../assets/img/colormap/6/1.png") no-repeat;
+                    background: url("../../assets/img/6_1.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-second {
                 &::after {
-                    background: url("../../assets/img/colormap/6/2.png") no-repeat;
+                    background: url("../../assets/img/6_2.png") no-repeat;
                     background-size: contain;
                 }
             }
             .th-single-color.th-view-third {
                 &::after {
-                    background: url("../../assets/img/colormap/6/3.png") no-repeat;
+                    background: url("../../assets/img/6_3.png") no-repeat;
                     background-size: contain;
                 }
             }
@@ -410,7 +435,7 @@ export default {
         }
         
         &::before {
-            background: url("../../assets/img/colormap/mocup.png") no-repeat;
+            background: url("../../assets/img/mocup.png") no-repeat;
             background-size: contain;
             width: 360px;
             height: 726px;
@@ -432,7 +457,7 @@ export default {
             left: 37px;
 
             &::after {
-                background: url("../../assets/img/colormap/1/1.png") no-repeat;
+                background: url("../../assets/img/1_1.png") no-repeat;
             }
         }
 
@@ -440,7 +465,7 @@ export default {
             z-index: 4;
 
             &::after {
-                background: url("../../assets/img/colormap/1/2.png") no-repeat;
+                background: url("../../assets/img/1_2.png") no-repeat;
             }
         }
 
@@ -449,7 +474,7 @@ export default {
             left: -37px;
 
             &::after {
-                background: url("../../assets/img/colormap/1/3.png") no-repeat;
+                background: url("../../assets/img/1_3.png") no-repeat;
             }
         }
     }
@@ -497,28 +522,52 @@ export default {
         display: block;
     }
 
+    #th-userDomen,
+    #th-userToken {
+        display: inline-block;
+
+        + .fa {
+            margin-top: 10px;
+
+            > .th-tooltip {
+                background: #f4f4f4;
+                border-radius: 10px;
+                color: #222;
+                width: auto;
+                padding: 10px;
+                top: 35px;
+                left: -200px;
+                border: 1px solid #e4e4e4;
+                height: auto;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.2;
+            }
+        }
+    }
+
     #checkbox1 ~ .fa > .th-tooltip {
-        background: url("../../assets/img/colormap/wish-list.png") no-repeat;
+        background: url("../../assets/img/wish-list.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox2 ~ .fa > .th-tooltip {
-        background: url("../../assets/img/colormap/paycard.png") no-repeat;
+        background: url("../../assets/img/paycard.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox3 ~ .fa > .th-tooltip {
-        background: url("../../assets/img/colormap/my-order.png") no-repeat;
+        background: url("../../assets/img/my-order.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox4 ~ .fa > .th-tooltip {
-        background: url("../../assets/img/colormap/search.png") no-repeat;
+        background: url("../../assets/img/search.png") no-repeat;
         background-size: contain;
     }
 
     #checkbox5 ~ .fa > .th-tooltip {
-        background: url("../../assets/img/colormap/filtrs.png") no-repeat;
+        background: url("../../assets/img/filtrs.png") no-repeat;
         background-size: contain;
     }
 
@@ -655,6 +704,7 @@ export default {
 
         li {
             display: inline-block;
+            vertical-align: top;
         }
 
         label {
@@ -670,10 +720,10 @@ export default {
         [type="radio"]:checked + label,
         [type="radio"]:not(:checked) + label {
             position: relative;
-            width: initial;
-            cursor: pointer;
+            width: 200px;
+            height: 92px;
             box-shadow: 0 5px 10px 4px #f2f2f2;
-            border-radius: 10px;
+            border-radius: 20px;
             margin-right: 20px;
         }
 
@@ -693,14 +743,28 @@ export default {
             }
         }
 
-        [type="radio"]:not(:checked) + label img {
-            border: 1px solid transparent;
+        img {
+            width: 100%;
+            border-radius: 20px;
+            height: 100%;
+        }
+
+        [type="radio"]:not(:disabled) + label img {
+            border: 1px solid #23b066;
+            cursor: pointer;
         }
 
         [type="radio"]:checked + label img {
             border: 1px solid #23b066;
-            border-radius: 5px;
+            border-radius: 20px;
             z-index: 4;
+        }
+
+        [type="radio"]:disabled + label img {
+            -webkit-filter: grayscale(1);
+            filter: grayscale(1);
+            pointer-events: none !important;
+            cursor: default !important;
         }
 
         [type="radio"]:not(:checked) + label::after {
@@ -764,8 +828,9 @@ export default {
         .th-color-theme {
 
             li {
-                width: 60px;
+                width: 85px;
                 height: 90px;
+                margin: 0;
             }
 
             [type="radio"]:checked + label::before,
@@ -806,11 +871,11 @@ export default {
             }
 
             &.th-view-first {
-                left: 20px;
+                left: 15px;
             }
 
             &.th-view-third {
-                left: -20px;
+                left: -15px;
             }
         }
 

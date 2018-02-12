@@ -78,7 +78,7 @@ export default {
       content: 'try demo';
       position: absolute;
       bottom: -18px;
-      color: #fff;
+      color: #7fec0f;
       font-size: 12px;
       text-align: center;
       width: 100%;

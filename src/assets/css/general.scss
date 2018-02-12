@@ -82,11 +82,19 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 15px 5px #d0d0d0;
   text-align: center;
+  top: 3%;
 
   &:hover {
     background: #e4e4e4;
     color: #721c24;
   }
+}
+
+.vm-back-top i {
+  position: relative;
+  top: -4px;
+  left: -4px;
+  padding: 0;
 }
 
 @import 'media';
