@@ -75,13 +75,14 @@ export default {
     width: 80px;
 
     &:after {
-      content: 'try demo';
+      content: 'Перейди в конструктор';
       position: absolute;
-      bottom: -18px;
-      color: #7fec0f;
+      bottom: -35px;
+      color: #30b6b5;
       font-size: 12px;
       text-align: center;
       width: 100%;
+      line-height: 1.2;
     }
   }
 
