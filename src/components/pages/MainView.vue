@@ -91,8 +91,10 @@ export default {
       height: 40px;
       width: 40px;
       &:after {
-        bottom: -13px;
+        bottom: -30px;
         font-size: 9px;
+        width: 135%;
+        left: -8px;
       }
     }
   }

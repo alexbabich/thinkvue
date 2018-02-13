@@ -1,6 +1,10 @@
 <template>
     <div class="th-demo-app">
         <b-container>
+            <div class="row text-center">
+                <img src="../../assets/img/th-demo-icon.png" alt="logo" class="mx-auto d-block"/>
+                <h2 class="col-12">Конструктор Вашего приложения</h2>
+            </div>
             <form id="form" @submit.prevent="submitre">
                 <div class="row">
                     <h2 class="col-12">Цветовая палитра</h2>
@@ -13,27 +17,27 @@
                     </div>
                     <ul class="list-unstyled col-12 th-color-theme">
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-1" value="th-1" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-1" value="18AD96, 67B9FF" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-1" class="th-1">1</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-2" value="th-2" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-2" value="00BEF6, FF5A8F" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-2" class="th-2">2</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-3" value="th-3" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-3" value="00BEF6, FFB642" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-3" class="th-3">3</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-4" value="th-4" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-4" value="4A8AE2, 05C9B2" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-4" class="th-4">4</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-5" value="th-5" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-5" value="04B39F, 7A1ED6" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-5" class="th-5">5</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-6" value="th-6" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-6" value="7A1ED6, FF518F" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-6" class="th-6">6</label>
                         </li>
                     </ul>
@@ -41,7 +45,7 @@
                     <ul class="list-unstyled col-12 th-system-list">
                         <li>
                             <input type="radio" id="th-systemPoster" value="Poster" v-model="system" checked>
-                            <label for="th-systemPoster"><img src="../../assets/img/icon-poster.png" /></label>
+                            <label for="th-systemPoster" class="th-systemPoster"></label>
                         </li>
                     </ul>
                     <h2 class="col-12">Звездочкой отмечены обязательные поля для заполнения</h2>
@@ -58,7 +62,7 @@
                         <p :class="{ 'control': true }">
                             <input id="th-userToken" class="form-control" v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('token') }" name="token" type="text" placeholder="Введите адрес" v-model="token" />
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip">Token - находится в Poster/Доступ/Итеграции/Личная интеграция (например - cd11f969e95959595n89005e8bb4a093)</span></i>
-                            <span v-show="errors.has('token ')" class="is-danger">Укажите токен</span>
+                            <span v-show="errors.has('token')" class="is-danger">Укажите токен</span>
                         </p>
                     </div>
                     <h2 class="col-12">Информация о заведении</h2>
@@ -87,27 +91,27 @@
                     <p class="col-12">Можете указать дополнительные функции в Вашем приложении</p>
                     <ul class="list-unstyled col-12 th-more-service">
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox1" v-model="wishList" />
+                            <input class="th-checkbox" true-value="true" false-value="false" type="checkbox" id="checkbox1" v-model="wishList" />
                             <label for="checkbox1">Wish list</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox2" v-model="card" />
+                            <input class="th-checkbox" true-value="true" false-value="false" type="checkbox" id="checkbox2" v-model="card" />
                             <label for="checkbox2">Оплата картой</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox3" v-model="orderList" />
+                            <input class="th-checkbox" true-value="true" false-value="false" type="checkbox" id="checkbox3" v-model="orderList" />
                             <label for="checkbox3">Лист заказов</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox4" v-model="search" />
+                            <input class="th-checkbox" true-value="true" false-value="false" type="checkbox" id="checkbox4" v-model="search" />
                             <label for="checkbox4">Поиск</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
                         <li>
-                            <input class="th-checkbox" type="checkbox" id="checkbox5" v-model="filter" />
+                            <input class="th-checkbox" true-value="true" false-value="false" type="checkbox" id="checkbox5" v-model="filter" />
                             <label for="checkbox5">Фильтры</label>
                             <i class="fa fa-info-circle" aria-hidden="true"><span class="th-tooltip"></span></i>
                         </li>
@@ -140,13 +144,13 @@ export default {
       address: '',
       email: '',
       phone: '',
-      auxiliaryColor: 'th-1',
+      auxiliaryColor: '18AD96, 67B9FF',
       mainColor: '',
-      card: false,
-      filter: false,
-      orderList: false,
-      search: false,
-      wishList: false,
+      card: 'false',
+      filter: 'false',
+      orderList: 'false',
+      search: 'false',
+      wishList: 'false',
       domen: '',
       system: 'Poster',
       token: ''
@@ -178,14 +182,6 @@ export default {
     }
   },
   methods: {
-//    phoneValidator: function () {
-//      let phoneno = /^((\+380)+([0-9]){9})$/
-//      if (this.phone.match(phoneno)) {
-//        console.log('true')
-//      } else {
-//        console.log('false')
-//      }
-//    },
     submitre: function () {
       this.$validator.validateAll().then((result) => {
         if (result) {
@@ -200,7 +196,7 @@ export default {
               phone: this.phone
             },
             colorScheme: {
-              auxiliaryColor: this.auxiliaryСolor,
+              auxiliaryColor: this.auxiliaryColor,
               mainColor: ''
             },
             settings: {
@@ -609,7 +605,7 @@ export default {
             border-radius: 100%;
             box-shadow: 0 0 10px 10px #f2f2f2;
             z-index: 4;
-            background-size: contain;
+            background-size: contain !important;
         }
 
         [type="radio"]:checked + label.th-1::before,
@@ -733,6 +729,11 @@ export default {
 
         label {
             font-size: 0;
+            background: url("../../assets/img/icon-poster.png") no-repeat;
+            background-size: cover;
+            width: 100%;
+            border-radius: 20px;
+            height: 100%;
         }
 
         [type="radio"]:checked,
@@ -767,24 +768,18 @@ export default {
             }
         }
 
-        img {
-            width: 100%;
-            border-radius: 20px;
-            height: 100%;
-        }
-
-        [type="radio"]:not(:disabled) + label img {
+        [type="radio"]:not(:disabled) + label{
             border: 1px solid #23b066;
             cursor: pointer;
         }
 
-        [type="radio"]:checked + label img {
+        [type="radio"]:checked + label {
             border: 1px solid #23b066;
             border-radius: 20px;
             z-index: 4;
         }
 
-        [type="radio"]:disabled + label img {
+        [type="radio"]:disabled + label {
             -webkit-filter: grayscale(1);
             filter: grayscale(1);
             pointer-events: none !important;
