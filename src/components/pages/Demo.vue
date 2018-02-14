@@ -945,23 +945,13 @@ export default {
                 left: -15px;
             }
         }
-
-        .th-system-list [type="radio"]:checked + label,
-        .th-system-list [type="radio"]:not(:checked) + label {
-            width: 60%;
-        }
-
-        .th-system-list [type="radio"]:checked + label img,
-        .th-system-list [type="radio"]:not(:checked) + label img{
-            width: 100%;
-        }
     }
 
     @media (max-width: 767px) {
         .th-color-theme {
 
             li {
-                width: 45px;
+                width: 70px;
                 height: 70px;
             }
 
