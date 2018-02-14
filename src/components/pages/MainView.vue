@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <span v-on:click="demoView=!demoView" :class="demoView ? 'th-main-view': 'th-demo-view'">{{demoView ? '': '<< Вернуться назад'}}</span>
+    <span v-scroll-to="'#app'" v-on:click="demoView=!demoView" :class="demoView ? 'th-main-view': 'th-demo-view'">{{demoView ? '': '<< Вернуться назад'}}</span>
     <div v-if="demoView">
       <HeaderSection/>
       <Advantages/>

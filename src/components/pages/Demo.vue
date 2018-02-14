@@ -10,45 +10,45 @@
                     <h2 class="col-12">Цветовая палитра</h2>
                     <p class="col-12" :class="{ 'error': errors.has('radio_group_1') }">Выберите одну из цветовых палитр Вашего приложения</p>
                     <span class="col-12 is-danger" v-show="errors.has('radio_group_1')">Обязательно укажите одну из предложенных цветовых палитр</span>
-                    <div class="th-color-map" :class="auxiliaryColor">
+                    <div class="th-color-map" :class="auxiliaryColor | colorTheme">
                         <div class="th-single-color th-view-first"></div>
                         <div class="th-single-color th-view-second"></div>
                         <div class="th-single-color th-view-third"></div>
                     </div>
                     <ul class="list-unstyled col-12 th-color-theme">
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-1" value="18AD96, 67B9FF" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-1" value="#18AD96,#67B9FF" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-1" class="th-1">1</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-2" value="00BEF6, FF5A8F" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-2" value="#00BEF6,#FF5A8F" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-2" class="th-2">2</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-3" value="00BEF6, FFB642" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-3" value="#00BEF6,#FFB642" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-3" class="th-3">3</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-4" value="4A8AE2, 05C9B2" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-4" value="#4A8AE2,#05C9B2" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-4" class="th-4">4</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-5" value="04B39F, 7A1ED6" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-5" value="#04B39F,#7A1ED6" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-5" class="th-5">5</label>
                         </li>
                         <li>
-                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-6" value="7A1ED6, FF518F" class="th-radio-button" v-model="auxiliaryColor">
+                            <input name="radio_group_1" v-validate="'required'" type="radio" id="th-6" value="#7A1ED6,#FF518F" class="th-radio-button" v-model="auxiliaryColor">
                             <label for="th-6" class="th-6">6</label>
                         </li>
                     </ul>
                     <h2 class="col-12">Система управления</h2>
+                    <p class="col-12"><span class="required">*</span>обязательные поля для заполнения</p>
                     <ul class="list-unstyled col-12 th-system-list">
                         <li>
                             <input type="radio" id="th-systemPoster" value="Poster" v-model="system" checked>
                             <label for="th-systemPoster" class="th-systemPoster"></label>
                         </li>
                     </ul>
-                    <h2 class="col-12">Звездочкой отмечены обязательные поля для заполнения</h2>
                     <div class="form-group col-12 col-md-6 required">
                         <label for="th-userDomen">Domen</label>
                         <p :class="{ 'control': true }">
@@ -144,7 +144,7 @@ export default {
       address: '',
       email: '',
       phone: '',
-      auxiliaryColor: '18AD96, 67B9FF',
+      auxiliaryColor: '#18AD96,#67B9FF',
       mainColor: '',
       card: 'false',
       filter: 'false',
@@ -196,8 +196,8 @@ export default {
               phone: this.phone
             },
             colorScheme: {
-              auxiliaryColor: this.auxiliaryColor,
-              mainColor: ''
+              auxiliaryColor: this.auxiliaryColor.split(',')[0],
+              mainColor: this.auxiliaryColor.split(',')[1]
             },
             settings: {
               card: this.card,
@@ -214,6 +214,17 @@ export default {
           })
         }
       })
+    }
+  },
+  filters: {
+    colorTheme: (value) => {
+      if (value === '#18AD96,#67B9FF') return 'th-1'
+      else if (value === '#00BEF6,#FF5A8F') return 'th-2'
+      else if (value === '#00BEF6,#FFB642') return 'th-3'
+      else if (value === '#4A8AE2,#05C9B2') return 'th-4'
+      else if (value === '#04B39F,#7A1ED6') return 'th-5'
+      else if (value === '#7A1ED6,#FF518F') return 'th-6'
+      else return value
     }
   },
   firebase: {
@@ -258,6 +269,7 @@ export default {
 
     .required {
         position: relative;
+        color: red;
 
         label::after {
             content: '*';
@@ -287,19 +299,25 @@ export default {
         text-align: center;
 
         &.th-1 {
+
             .th-single-color.th-view-first {
+
                 &::after {
                     background: url("../../assets/img/1_1.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-second {
+
                 &::after {
                     background: url("../../assets/img/1_2.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-third {
+
                 &::after {
                     background: url("../../assets/img/1_3.png") no-repeat;
                     background-size: contain;
@@ -308,19 +326,25 @@ export default {
         }
 
         &.th-2 {
+
             .th-single-color.th-view-first {
+
                 &::after {
                     background: url("../../assets/img/2_1.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-second {
+
                 &::after {
                     background: url("../../assets/img/2_2.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-third {
+
                 &::after {
                     background: url("../../assets/img/2_3.png") no-repeat;
                     background-size: contain;
@@ -329,19 +353,25 @@ export default {
         }
 
         &.th-3 {
+
             .th-single-color.th-view-first {
+
                 &::after {
                     background: url("../../assets/img/3_1.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-second {
+
                 &::after {
                     background: url("../../assets/img/3_2.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-third {
+
                 &::after {
                     background: url("../../assets/img/3_3.png") no-repeat;
                     background-size: contain;
@@ -350,19 +380,25 @@ export default {
         }
 
         &.th-4 {
+
             .th-single-color.th-view-first {
+
                 &::after {
                     background: url("../../assets/img/4_1.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-second {
+
                 &::after {
                     background: url("../../assets/img/4_2.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-third {
+
                 &::after {
                     background: url("../../assets/img/4_3.png") no-repeat;
                     background-size: contain;
@@ -371,19 +407,25 @@ export default {
         }
 
         &.th-5 {
+
             .th-single-color.th-view-first {
+
                 &::after {
                     background: url("../../assets/img/5_1.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-second {
+
                 &::after {
                     background: url("../../assets/img/5_2.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-third {
+
                 &::after {
                     background: url("../../assets/img/5_3.png") no-repeat;
                     background-size: contain;
@@ -392,19 +434,25 @@ export default {
         }
 
         &.th-6 {
+
             .th-single-color.th-view-first {
+
                 &::after {
                     background: url("../../assets/img/6_1.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-second {
+
                 &::after {
                     background: url("../../assets/img/6_2.png") no-repeat;
                     background-size: contain;
                 }
             }
+
             .th-single-color.th-view-third {
+
                 &::after {
                     background: url("../../assets/img/6_3.png") no-repeat;
                     background-size: contain;
