@@ -6,7 +6,7 @@
                 <p>Чтобы посмотреть, как будет выглядеть Ваше приложение, выполните несколько действий:</p>
                 <p>1) Скачайте тестовое приложение "Суши e-app"</p>
                 <ul class="list-unstyled th-appList">
-                    <li><a href="https://itunes.apple.com/us/app/суши-e-app/id1327375087?ls=1&mt=8"><i class="fa fa-android"></i>Android</a></li>
+                    <li><a href="#"><i class="fa fa-android"></i>Android</a></li>
                     <li><a href="https://itunes.apple.com/us/app/суши-e-app/id1327375087?ls=1&mt=8"><i class="fa fa-apple"></i>IOS</a></li>
                 </ul>
                 <p>2) Нажмите кнопку "Войти с кодом"</p>
